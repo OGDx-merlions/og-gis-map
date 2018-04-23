@@ -45,12 +45,14 @@ REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
   <template>
     <style include="og-gis-map-styles"></style>
     <template is="dom-if" if="[[hasRegions]]">
-      <div class="btn-group flex flex--center regions">
+      <div class="btn-group regions" style$="left: [[regionLeft]]">
         <template is="dom-repeat" items="[[regions]]" index-as="idx">
-          <input id$="region-[[idx]]" on-tap="_focusRegion" 
-            checked$="[[item.default]]"
-            name="btn-group" type="radio">
-          <label for$="region-[[idx]]" class="btn">[[item.label]]</label>
+          <div>
+            <input id$="region-[[idx]]" on-tap="_focusRegion" 
+              checked$="[[item.default]]"
+              name="btn-group" type="radio">
+            <label for$="region-[[idx]]" class="btn">[[item.label]]</label>
+          </div>
         </template>
       </div>
     </template>

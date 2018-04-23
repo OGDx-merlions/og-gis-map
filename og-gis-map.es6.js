@@ -278,6 +278,10 @@
         value() {
           return []
         }
+      },
+      regionLeft: {
+        type: String,
+        computed: '_calculateRegionLeft(width)'
       }
     },
     _hasRegions(regions){
@@ -297,6 +301,12 @@
             this.lng = _region.lng;
           }
         });
+      }
+    },
+    _calculateRegionLeft(width) {
+      if(width) {
+        let num = width.match(/\d+/)[0];
+        return num/2+width.split(num)[1];
       }
     }
   });
