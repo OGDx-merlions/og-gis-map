@@ -43,7 +43,7 @@
           lng="{{props.lng.value}}" tile-url="{{props.tileUrl.value}}"
           features="{{props.features.value}}" feature-styles="{{props.featureStyles.value}}"
           marker-group="{{props.markerGroup.value}}" colors-by-type="{{props.colorsByType.value}}"
-          regions="{{props.regions.value}}">
+          regions="{{props.regions.value}}" on-px-map-marker-group-marker-tapped="_test">
         </og-gis-map>
       </px-demo-component>
       <!-- END Component ------------------------------------------------------>
@@ -226,7 +226,7 @@
       },
       zoom: {
         type: Number,
-        defaultValue: '8',
+        defaultValue: '10',
         inputType: 'text'
       },
       tileUrl: {
@@ -357,6 +357,9 @@
         defaultValue: {},
         inputType: 'code:JSON'
       }
+    },
+    _test(e) {
+      console.log(e)
     }
   });
 </script>

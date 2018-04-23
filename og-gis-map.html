@@ -20,7 +20,20 @@ REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
 
 ### Usage
 
-    <og-gis-map counter-value="1"></og-gis-map>
+    <og-gis-map
+      width="75vw"
+      height="500px"
+      lat="0"
+      lng="100"
+      zoom="8"
+      tile-url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      regions='[{"label":"Region 1","lat":0,"lng":100,"default":true},{"label":"Region 2","lat":2,"lng":105}]'
+      features='{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[102,0.5]},"properties":{"prop0":"value0"}},{"type":"Feature","geometry":{"type":"LineString","coordinates":[[102,0],[103,1],[104,0],[105,1]]},"properties":{"prop0":"value0","prop1":0}},{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[100,0],[101,0],[101,1],[100,1],[100,0]]]},"properties":{"prop0":"value0","prop1":{"this":"that"}}}]}'
+      feature-styles='{"color":"fuchsia","stroke-color":"fuchsia"}'
+      marker-group='{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":["100.24042573","0.67445793"]},"properties":{"title":"Cabrillo National Monument","marker-icon":{"icon-base":"static-icon","icon-type":"warning"}},"id":"10001"},{"type":"Feature","geometry":{"type":"Point","coordinates":["100.27618677","0.83957829"]},"properties":{"title":"Pearl St & Draper Av","marker-icon":{"icon-base":"static-icon","icon-type":"info"}},"id":"10003"},{"type":"Feature","geometry":{"type":"Point","coordinates":["100.2738099","0.84012848"]},"properties":{"title":"Pearl St & Fay Av","marker-icon":{"icon-base":"static-icon","icon-type":"unknown"}},"id":"10004"},{"type":"Feature","geometry":{"type":"Point","coordinates":["100.26867322","0.8458467"]},"properties":{"title":"Torrey Pines Rd & Exchange Pl","marker-icon":{"icon-base":"static-icon","icon-type":"important"}},"id":"10006"}]}'
+      colors-by-type='{}'
+      on-px-map-marker-group-marker-tapped='_test'>
+    </og-gis-map>
 
 @element og-gis-map
 @blurb REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
