@@ -36,6 +36,10 @@
 @import 'px-buttons-design/_objects.buttons.scss';
 @import "px-button-group-design/_objects.button-group.scss";
 
+$inuit-enable-responsive-margins : true;
+$inuit-enable-responsive-paddings : true;
+@import 'px-spacing-responsive-design/_trumps.spacing-responsive.scss';
+
 
 
 // Meta
@@ -47,7 +51,10 @@
 .regions {
   padding-top: 0.75rem;
   position: absolute;
-  z-index: 9999;
+  z-index: 800;
+  #regionSelector {
+    padding-left: 1rem;
+  }
 }
 
 

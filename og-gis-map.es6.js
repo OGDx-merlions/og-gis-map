@@ -278,35 +278,35 @@
         value() {
           return []
         }
-      },
-      regionLeft: {
-        type: String,
-        computed: '_calculateRegionLeft(width)'
       }
     },
     _hasRegions(regions){
       return regions && regions.length;
     },
     _focusRegion(evt) {
-      let item = evt.model.item;
-      this.lat = item.lat;
-      this.lng = item.lng;
-      this.$.map.zoom = this.zoom;
+      let eventDetail = evt.detail;
+      if(eventDetail.selected) {
+        let item = this.regions[eventDetail.key];
+        this.lat = item.lat;
+        this.lng = item.lng;
+        this.$.map.zoom = this.zoom;
+      }
     },
     _selectDefaultRegion() {
+      this.regionsDropdownData = [];
       if(this.regions) {
         this.regions.forEach((_region, idx) => {
+          let obj = {
+            "key": idx,
+            "val": _region.label
+          };
           if(_region.default) {
             this.lat = _region.lat;
             this.lng = _region.lng;
+            obj.selected = true;
           }
+          this.regionsDropdownData.push(obj);
         });
-      }
-    },
-    _calculateRegionLeft(width) {
-      if(width) {
-        let num = width.match(/\d+/)[0];
-        return num/2+width.split(num)[1];
       }
     }
   });

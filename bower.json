@@ -1,6 +1,6 @@
 {
   "name": "og-gis-map",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": [
     "og-gis-map.html"
   ],
@@ -24,7 +24,8 @@
   ],
   "dependencies": {
     "polymer": "^1.9.0",
-    "px-map": "^3.2.0"
+    "px-map": "^3.2.0",
+    "px-dropdown": "^4.7.6"
   },
   "devDependencies": {
     "px-headings-design": "^1.0.0",
@@ -36,7 +37,8 @@
     "px-theme": "^3.0.0",
     "px-dark-theme": "^2.4.1",
     "px-dark-demo-theme": "^2.1.0",
-    "px-button-group-design": "^2.0.6"
+    "px-button-group-design": "^2.0.6",
+    "px-spacing-responsive-design": "^1.0.3"
   },
   "variants": {
     "1.x": {
