@@ -52,8 +52,8 @@ $inuit-enable-responsive-paddings : true;
   padding-top: 0.75rem;
   position: absolute;
   z-index: 800;
-  #regionSelector {
-    padding-left: 1rem;
+  .region-sel-div {
+    left: 50%;
   }
 }
 
