@@ -1,6 +1,6 @@
 {
   "name": "og-gis-map",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": [
     "og-gis-map.html"
   ],
