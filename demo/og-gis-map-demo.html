@@ -216,29 +216,35 @@
       },
       lat: {
         type: Number,
-        defaultValue: '0',
+        defaultValue: '31.341871',
         inputType: 'text'
       },
       lng: {
         type: Number,
-        defaultValue: '100',
+        defaultValue: '27.260645',
         inputType: 'text'
       },
       zoom: {
         type: Number,
-        defaultValue: '10',
+        defaultValue: '8',
         inputType: 'text'
       },
       tileUrl: {
         type: String,
-        defaultValue: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        defaultValue: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.png',
         inputType: 'text'
       },
       regions: {
         type: Array,
         defaultValue: [
-          {label: "Region 1", lat: 0, lng: 100, default: true}, 
-          {label: "Region 2", lat: 2, lng: 105}
+          {label: "Gulf of Suez", lat: 28.979312, lng: 32.900620, default: true}, 
+          {label: "Red Sea", lat: 20.280232, lng: 38.51257299},
+          {label: "Mediterranean", lat: 31.02606446047858, lng: 29.291531856375627},
+          {label: "Western Desert", lat: 23.4162027, lng: 25.6628299},
+          {label: "Upper Egypt", lat: 26.820553, lng: 30.802498},
+          {label: "Nile Delta", lat: 31.20716599, lng: 30.5499489},
+          {label: "Eastern Desert", lat: 28.130434, lng: 32.118404},
+          {label: "Sinai", lat: 29.5, lng: 34}
         ],
         inputType: 'code:JSON'
       },
@@ -249,34 +255,1268 @@
           "features": [
             {
               "type": "Feature",
-              "geometry": { "type": "Point", "coordinates": [102.0, 0.5] },
-              "properties": { "prop0": "value0" }
-            },
-            {
-              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Tobrouk",
+                  "Sallum"
+                ],
+                "interconnection": [
+                  "Libya",
+                  "Egypt"
+                ]
+              },
               "geometry": {
                 "type": "LineString",
                 "coordinates": [
-                  [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
+                  [
+                    23.96405696868896,
+                    32.076938359024695
+                  ],
+                  [
+                    23.98092269897461,
+                    32.00298106789148
+                  ],
+                  [
+                    25.159474611282345,
+                    31.552820655675447
+                  ]
                 ]
-              },
-              "properties": {
-                "prop0": "value0",
-                "prop1": 0.0
               }
             },
             {
               "type": "Feature",
+              "properties": {
+                "name": "Sallum",
+                "nodeType": "town"
+              },
               "geometry": {
-                "type": "Polygon",
+                "type": "Point",
                 "coordinates": [
-                  [[100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
-                  [100.0, 1.0], [100.0, 0.0]]
+                  25.159474611282345,
+                  31.552820655675447
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "El Dabaa",
+                  "Sallum"
                 ]
               },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    25.159378051757812,
+                    31.552829798339694
+                  ],
+                  [
+                    25.169677734375,
+                    31.520020155192825
+                  ],
+                  [
+                    27.93548583984375,
+                    31.0741083805733
+                  ],
+                  [
+                    28.44403266906738,
+                    31.028592315372258
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
               "properties": {
-                "prop0": "value0",
-                "prop1": { "this": "that" }
+                "name": "El Dabaa",
+                "nodeType": "town"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  28.44403266906738,
+                  31.028592315372258
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Alexandria",
+                  "Sallum"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    28.443946838378903,
+                    31.02866586453409
+                  ],
+                  [
+                    29.031372070312496,
+                    30.80083339188406
+                  ],
+                  [
+                    29.28955078125,
+                    30.848005473822894
+                  ],
+                  [
+                    29.55734252929687,
+                    30.968189296794247
+                  ],
+                  [
+                    29.884872436523434,
+                    31.172859855662644
+                  ],
+                  [
+                    29.89274740219116,
+                    31.197641787291357
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Alexandria",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  29.89274740219116,
+                  31.197641787291357
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Alexandria",
+                  "Kafr El Dawwar"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    29.89274740219116,
+                    31.197641787291357
+                  ],
+                  [
+                    30.13620615005493,
+                    31.13111977269489
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Kafr El Dawwar",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  30.13620615005493,
+                  31.13111977269489
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Damanhur",
+                  "Kafr El Dawwar"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    30.135498046875,
+                    31.131432019267276
+                  ],
+                  [
+                    30.469132661819458,
+                    31.04037784382657
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Damanhur",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  30.469132661819458,
+                  31.04037784382657
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "Damanhur",
+                  "Tanta"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    30.469132661819458,
+                    31.04037784382657
+                  ],
+                  [
+                    30.999008417129513,
+                    30.783792311120383
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Tanta",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  30.999008417129513,
+                  30.783792311120383
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "El Mahalla",
+                  "Tanta"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    30.999008417129513,
+                    30.783792311120383
+                  ],
+                  [
+                    31.16795539855957,
+                    30.96988198499348
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "El Mahalla",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.16795539855957,
+                  30.96988198499348
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "El Mahalla",
+                  "Mansoura"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.16795539855957,
+                    30.96988198499348
+                  ],
+                  [
+                    31.38115882873535,
+                    31.04138901466813
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Mansoura",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.38115882873535,
+                  31.04138901466813
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "double",
+                "nodes": [
+                  "Damietta",
+                  "Mansoura"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.38115882873535,
+                    31.04138901466813
+                  ],
+                  [
+                    31.81434631347656,
+                    31.417493585161417
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Damietta",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.81434631347656,
+                  31.417493585161417
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "double",
+                "nodes": [
+                  "Damietta",
+                  "Port Said"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.81434631347656,
+                    31.417493585161417
+                  ],
+                  [
+                    31.784820556640625,
+                    31.286766314555713
+                  ],
+                  [
+                    31.849365234374996,
+                    31.21162694596725
+                  ],
+                  [
+                    32.089691162109375,
+                    31.131725897455333
+                  ],
+                  [
+                    32.29104995727539,
+                    31.200174685885464
+                  ],
+                  [
+                    32.2998046875,
+                    31.26329168556556
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Port Said",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  32.2998046875,
+                  31.26329168556556
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "Arish",
+                  "Port Said"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    32.2998046875,
+                    31.26329168556556
+                  ],
+                  [
+                    32.38563537597656,
+                    31.205166867169954
+                  ],
+                  [
+                    32.5250244140625,
+                    31.062345409804408
+                  ],
+                  [
+                    32.783203125,
+                    31.01174806181128
+                  ],
+                  [
+                    33.31260681152344,
+                    31.05058098421751
+                  ],
+                  [
+                    33.80501747131347,
+                    31.12720741970785
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Arish",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  33.80501747131347,
+                  31.12720741970785
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Cairo",
+                  "Damanhur"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    30.469132661819458,
+                    31.04037784382657
+                  ],
+                  [
+                    31.235718727111816,
+                    30.044430015213965
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Cairo",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.235718727111816,
+                  30.044430015213965
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "Cairo",
+                  "Tanta"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.235718727111816,
+                    30.044430015213965
+                  ],
+                  [
+                    30.999008417129513,
+                    30.783792311120383
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "Cairo",
+                  "Mansoura"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.235718727111816,
+                    30.044430015213965
+                  ],
+                  [
+                    31.38115882873535,
+                    31.04138901466813
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Cairo",
+                  "Obour"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.235718727111816,
+                    30.044430015213965
+                  ],
+                  [
+                    31.447420120239258,
+                    30.193508456832618
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Obour",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.447420120239258,
+                  30.193508456832618
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "10th of Ramadan",
+                  "Obour"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.7493724822998,
+                    30.28775393481583
+                  ],
+                  [
+                    31.447420120239258,
+                    30.193508456832618
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "10th of Ramadan",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.7493724822998,
+                  30.28775393481583
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "double",
+                "nodes": [
+                  "Cairo",
+                  "Gizah"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.235718727111816,
+                    30.044430015213965
+                  ],
+                  [
+                    31.211771965026852,
+                    30.018608007395816
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Gizah",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.211771965026852,
+                  30.018608007395816
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Gizah",
+                  "6th of October"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.211771965026852,
+                    30.018608007395816
+                  ],
+                  [
+                    30.9444522857666,
+                    29.972408856288546
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "6th of October",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  30.9444522857666,
+                  29.972408856288546
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Gizah",
+                  "Helwan"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.211771965026852,
+                    30.018608007395816
+                  ],
+                  [
+                    31.333565711975094,
+                    29.842644740445902
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Helwan",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.333565711975094,
+                  29.842644740445902
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Obour",
+                  "Helwan"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.333565711975094,
+                    29.842644740445902
+                  ],
+                  [
+                    31.447420120239258,
+                    30.193508456832618
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Faiyum",
+                  "Helwan"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.333565711975094,
+                    29.842644740445902
+                  ],
+                  [
+                    30.84575772285461,
+                    29.308957416655165
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Faiyum",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  30.84575772285461,
+                  29.308957416655165
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Faiyum",
+                  "6th of October"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    30.9444522857666,
+                    29.972408856288546
+                  ],
+                  [
+                    30.84575772285461,
+                    29.308957416655165
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "double",
+                "nodes": [
+                  "Faiyum",
+                  "Samalut"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    30.84575772285461,
+                    29.308957416655165
+                  ],
+                  [
+                    30.71408271789551,
+                    28.301924666468206
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Samalut",
+                "nodeType": "town"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  30.71408271789551,
+                  28.301924666468206
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Ras Gharib",
+                  "Samalut"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    30.71408271789551,
+                    28.301924666468206
+                  ],
+                  [
+                    33.08158278465271,
+                    28.36277937264174
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Ras Gharib",
+                "nodeType": "town"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  33.08158278465271,
+                  28.36277937264174
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "double",
+                "nodes": [
+                  "Asyut",
+                  "Samalut"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    30.71408271789551,
+                    28.301924666468206
+                  ],
+                  [
+                    31.18788957595825,
+                    27.180554067065852
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Ras Gharib",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  31.18788957595825,
+                  27.180554067065852
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "double",
+                "nodes": [
+                  "Asyut",
+                  "Nag Hammadi"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.18788957595825,
+                    27.180554067065852
+                  ],
+                  [
+                    32.24182605743408,
+                    26.047491149847314
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Nag Hammadi",
+                "nodeType": "town"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  32.24182605743408,
+                  26.047491149847314
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "Luxor",
+                  "Nag Hammadi"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    32.24182605743408,
+                    26.047491149847314
+                  ],
+                  [
+                    32.6443076133728,
+                    25.696645464489244
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Luxor",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  32.6443076133728,
+                  25.696645464489244
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "double",
+                "nodes": [
+                  "Aswan Dam",
+                  "Nag Hammadi"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    32.24182605743408,
+                    26.047491149847314
+                  ],
+                  [
+                    32.8546142578125,
+                    24.011344109236358
+                  ],
+                  [
+                    32.8755784034729,
+                    23.970567922968534
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Aswan Dam",
+                "nodeType": "dam"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  32.8755784034729,
+                  23.970567922968534
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "Aswan Dam",
+                  "Aswan"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    32.89864540100098,
+                    24.089508037655953
+                  ],
+                  [
+                    32.90473937988281,
+                    24.031884138922187
+                  ],
+                  [
+                    32.886199951171875,
+                    23.9722933308997
+                  ],
+                  [
+                    32.8755784034729,
+                    23.970567922968534
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Aswan",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  32.89864540100098,
+                  24.089508037655953
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Obour",
+                  "Suez"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.447420120239258,
+                    30.193508456832618
+                  ],
+                  [
+                    32.54377841949463,
+                    29.978115224832184
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Suez",
+                "nodeType": "city"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  32.54377841949463,
+                  29.978115224832184
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Taba",
+                  "Suez"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    32.54377841949463,
+                    29.978115224832184
+                  ],
+                  [
+                    34.89474534988403,
+                    29.492000884953583
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "name": "Taba",
+                "nodeType": "town"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  34.89474534988403,
+                  29.492000884953583
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 500,
+                "lineType": "single",
+                "nodes": [
+                  "Obour",
+                  "Tabuk"
+                ],
+                "interconnection": [
+                  "Egypt",
+                  "Saudi Arabia"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    31.447420120239258,
+                    30.193508456832618
+                  ],
+                  [
+                    32.662353515625,
+                    30.0262995822237
+                  ],
+                  [
+                    33.826904296875,
+                    28.188243641850313
+                  ],
+                  [
+                    34.398193359375,
+                    28.105903469076186
+                  ],
+                  [
+                    36.57992362976074,
+                    28.384226971077727
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {
+                "transmissionPower": 225,
+                "lineType": "single",
+                "nodes": [
+                  "Taba",
+                  "Aqaba"
+                ],
+                "interconnection": [
+                  "Egypt",
+                  "Jordan"
+                ]
+              },
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    34.89474534988403,
+                    29.492000884953583
+                  ],
+                  [
+                    35.00626087188721,
+                    29.532055731002483
+                  ]
+                ]
               }
             }
           ]
@@ -285,7 +1525,7 @@
       },
       featureStyles: {
         type: Object,
-        defaultValue: {"color":"fuchsia", "stroke-color": "fuchsia"},
+        defaultValue: {"color":"#3E87E8", "fillColor": "#3E87E8"},
         inputType: 'code:JSON'
       },
       markerGroup: {
@@ -296,13 +1536,18 @@
               "type": "Feature",
               "geometry": {
                 "type": "Point",
-                "coordinates": ["100.24042573", "0.67445793"]
+                "coordinates": ["32.67445793", "28.24042573"]
               },
               "properties": {
                 "title": "Cabrillo National Monument",
                 "marker-icon": {
                   "icon-base": "static-icon",
                   "icon-type": "warning"
+                },
+                "marker-popup": {
+                  "popup-base": "info-popup",
+                  "popup-title": "Oil Field",
+                  "popup-description": "Lorem ipsum dolor sit amet, consectetur adipisicing..."
                 }
               },
               "id": "10001"
@@ -310,13 +1555,18 @@
               "type": "Feature",
               "geometry": {
                 "type": "Point",
-                "coordinates": ["100.27618677", "0.83957829"]
+                "coordinates": ["30.83957829", "27.27618677"]
               },
               "properties": {
                 "title": "Pearl St & Draper Av",
                 "marker-icon": {
                   "icon-base": "static-icon",
                   "icon-type": "info"
+                },
+                "marker-popup": {
+                  "popup-base": "info-popup",
+                  "popup-title": "Refinery",
+                  "popup-description": "Lorem ipsum dolor sit amet, consectetur adipisicing..."
                 }
               },
               "id": "10003"
@@ -324,13 +1574,18 @@
               "type": "Feature",
               "geometry": {
                 "type": "Point",
-                "coordinates": ["100.2738099", "0.84012848"]
+                "coordinates": ["32.2738099", "27.84012848"]
               },
               "properties": {
                 "title": "Pearl St & Fay Av",
                 "marker-icon": {
                   "icon-base": "static-icon",
                   "icon-type": "unknown"
+                },
+                "marker-popup": {
+                  "popup-base": "info-popup",
+                  "popup-title": "Gas pipeline",
+                  "popup-description": "Lorem ipsum dolor sit amet, consectetur adipisicing..."
                 }
               },
               "id": "10004"
@@ -338,13 +1593,18 @@
               "type": "Feature",
               "geometry": {
                 "type": "Point",
-                "coordinates": ["100.26867322", "0.8458467"]
+                "coordinates": ["31.26867322", "28.8458467"]
               },
               "properties": {
                 "title": "Torrey Pines Rd & Exchange Pl",
                 "marker-icon": {
                   "icon-base": "static-icon",
                   "icon-type": "important"
+                },
+                "marker-popup": {
+                  "popup-base": "info-popup",
+                  "popup-title": "Field",
+                  "popup-description": "Lorem ipsum dolor sit amet, consectetur adipisicing..."
                 }
               },
               "id": "10006"
