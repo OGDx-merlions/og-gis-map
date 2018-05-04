@@ -296,10 +296,9 @@
       this.regionsDropdownData = [];
       if(this.regions) {
         this.regions.forEach((_region, idx) => {
-          let obj = {
-            "key": idx,
-            "val": _region.label
-          };
+          let obj = _region;
+          obj.key = idx;
+          obj.val = _region.label
           if(_region.default) {
             this.lat = _region.lat;
             this.lng = _region.lng;
