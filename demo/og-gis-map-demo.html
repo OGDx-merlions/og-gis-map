@@ -231,7 +231,7 @@
       },
       tileUrl: {
         type: String,
-        defaultValue: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.png',
+        defaultValue: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
         inputType: 'text'
       },
       regions: {
@@ -240,7 +240,7 @@
           {label: "Gulf of Suez", lat: 28.979312, lng: 32.900620, default: true}, 
           {label: "Red Sea", lat: 20.280232, lng: 38.51257299, disabled: true},
           {label: "Mediterranean", lat: 31.02606446047858, lng: 29.291531856375627},
-          {label: "Western Desert", lat: 23.4162027, lng: 25.6628299},
+          {label: "Western Desert", lat: 23.4162027, lng: 25.6628299, zoom: 13},
           {label: "Upper Egypt", lat: 26.820553, lng: 30.802498},
           {label: "Nile Delta", lat: 31.20716599, lng: 30.5499489},
           {label: "Eastern Desert", lat: 28.130434, lng: 32.118404},

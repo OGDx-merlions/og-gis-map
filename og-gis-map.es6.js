@@ -289,7 +289,7 @@
         let item = this.regions[eventDetail.key];
         this.lat = item.lat;
         this.lng = item.lng;
-        this.$.map.zoom = this.zoom;
+        this.$.map.zoom = item.zoom || this.zoom;
       }
     },
     _selectDefaultRegion() {
