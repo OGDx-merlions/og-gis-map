@@ -43,7 +43,8 @@
           lng="{{props.lng.value}}" tile-url="{{props.tileUrl.value}}"
           features="{{props.features.value}}" feature-styles="{{props.featureStyles.value}}"
           marker-group="{{props.markerGroup.value}}" colors-by-type="{{props.colorsByType.value}}"
-          regions="{{props.regions.value}}" on-px-map-marker-group-marker-tapped="_test">
+          regions="{{props.regions.value}}" on-px-map-marker-group-marker-tapped="_test"
+          cluster-config="{{props.clusterConfig.value}}">
         </og-gis-map>
       </px-demo-component>
       <!-- END Component ------------------------------------------------------>
@@ -1613,6 +1614,11 @@
         inputType: 'code:JSON'
       },
       colorsByType: {
+        type: Object,
+        defaultValue: {},
+        inputType: 'code:JSON'
+      },
+      clusterConfig: {
         type: Object,
         defaultValue: {},
         inputType: 'code:JSON'
