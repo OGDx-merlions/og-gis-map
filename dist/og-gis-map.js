@@ -180,5 +180,30 @@
        * 
        * Format: [{label: "Region 1", lat: 100, lng: 0, default: true}, {label: "Region 2", lat: -100, lng: 0}]
        * @type {Array}
-       */regions:{type:Array,value:function value(){return[]},observer:'_selectDefaultRegion'},hasRegions:{type:Boolean,computed:'_hasRegions(regions)',value:function value(){return[]}}},_hasRegions:function _hasRegions(regions){return regions&&regions.length},_focusRegion:function _focusRegion(evt){var eventDetail=evt.detail;if(eventDetail.selected){var item=this.regions[eventDetail.key];this.lat=item.lat;this.lng=item.lng;this.$.map.zoom=item.zoom||this.zoom}},_selectDefaultRegion:function _selectDefaultRegion(){var _this=this;this.regionsDropdownData=[];if(this.regions){this.regions.forEach(function(_region,idx){var obj=_region;obj.key=idx;obj.val=_region.label;if(_region.default){_this.lat=_region.lat;_this.lng=_region.lng;obj.selected=true}_this.regionsDropdownData.push(obj)})}}})})();
+       */regions:{type:Array,value:function value(){return[]},observer:'_selectDefaultRegion'},/**
+       * Allows advanced configurations of the cluster behaviors and styles. Note
+       * that the cluster comes pre-configured with settings that will work
+       * for most use cases; the `clusterConfig` allows those settings to be
+       * overriden but may cause unexpected behaviors when conflicting settings
+       * are used. Leave the default configuration (by not setting this attribute)
+       * if you're unsure of how to use it.
+       *
+       * The following settings are available:
+       *
+       * - {Boolean} `showCoverageOnHover`: [default=true] Shows the bounds of a cluster as a polygon when its icon is hovered
+       * - {Boolean} `zoomToBoundsOnClick`: [default=true] Zooms to bounds of a cluster when its icon is clicked
+       * - {Boolean} `spiderfyOnMaxZoom`: [default=true] Spiderfies the markers in a cluster when it is clicked at the max zoom level
+       * - {Boolean} `removeOutsideVisibleBounds`: [default=true] Removes cluster icons and markers when they are too far outside the visible map bounds
+       * - {Boolean} `animate`: [default=true] Animates cluster splitting, joining, zooming, and spiderfying
+       * - {Number} `disableClusteringAtZoom`: [default=undefined] If set, when the user zooms below this level markers will not be clustered (do not combine with `spiderfyOnMaxZoom`)
+       * - {Number} `maxClusterRadius`: [default=150] The maximum radius in pixels a cluster will cover from the central marker. Lower numbers make smaller clusters. Setting below the default may cause cluster icons to overlap.
+       * - {Object} `polygonOptions`: [default=150] Options passed to draw the cluster cover polygon
+       *   - {Boolean} `polygonOptions.stroke`: [default=true] If true the polygon will have a stroke line around the outside
+       *   - {String} `polygonOptions.color`: [default=--px-map-marker-group-cluster-polygon-stroke-color] Sets the stroke color, prefer setting with the style variable
+       *   - {String} `polygonOptions.fillColor`: [default=--px-map-marker-group-cluster-polygon-fill-color] Sets the fill color color, prefer setting with the style variable.
+       *   - {Number} `polygonOptions.fillOpacity`: [default=0.4] Sets the opacity of the polygon fill
+       * - {Object} `spiderLegPolylineOptions`: [default=undefined] Sets the style for the marker spiderfy legs, see [PolylineOptions](http://leafletjs.com/reference.html#polyline-options)
+       *
+       * @type {Object}
+       */clusterConfig:{type:Object,value:function value(){return{}}},hasRegions:{type:Boolean,computed:'_hasRegions(regions)',value:function value(){return[]}}},_hasRegions:function _hasRegions(regions){return regions&&regions.length},_focusRegion:function _focusRegion(evt){var eventDetail=evt.detail;if(eventDetail.selected){var item=this.regions[eventDetail.key];this.lat=item.lat;this.lng=item.lng;this.$.map.zoom=item.zoom||this.zoom}},_selectDefaultRegion:function _selectDefaultRegion(){var _this=this;this.regionsDropdownData=[];if(this.regions){this.regions.forEach(function(_region,idx){var obj=_region;obj.key=idx;obj.val=_region.label;if(_region.default){_this.lat=_region.lat;_this.lng=_region.lng;obj.selected=true}_this.regionsDropdownData.push(obj)})}}})})();
 //# sourceMappingURL=og-gis-map.js.map
