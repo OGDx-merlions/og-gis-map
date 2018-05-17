@@ -1,0 +1,172 @@
+/*
+ * Copyright (c) 2018, General Electric
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+// ICON CONTAINER
+
+.map-icon-symbol {
+  @extend %map-icon !optional;
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+}
+
+.map-icon-symbol__wrapper{
+  position: relative;
+  top: 3px;
+}
+
+// ICON BODY
+.map-icon-symbol__body {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--internal-px-map-icon-info-color);
+  border-radius: 100%;
+  position: absolute;
+  border: 2px solid var(--internal-px-map-icon-border-color);
+  padding: 10px;
+}
+
+// ICON DESCENDER
+.map-icon-symbol__descender {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 13px 5px 0;
+  border-color: var(--internal-px-map-icon-info-color) transparent transparent transparent;
+  position: absolute;
+  left: 15px;
+  top: 37px;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 7px 0px;
+    border-color: var(--internal-px-map-icon-border-color) transparent transparent;
+    position: absolute;
+    z-index: -1;
+    left: -7px;
+    top: -12px;
+    transform: scaleY(1.1);
+  }
+}
+
+.map-icon-symbol__symbol--container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// ICON MODIFIERS
+// Use a modifier to change the color and appearance of an icon.
+
+// 'info' modifier - sets the info-icon-color (defaults to $alert-blue)
+.map-icon-symbol--info .map-icon-symbol__body {
+  background-color: var(--internal-px-map-icon-info-color);
+}
+.map-icon-symbol--info .map-icon-symbol__descender {
+  border-top-color: var(--internal-px-map-icon-info-color);
+}
+
+// 'important' modifier - sets icon-important-color (defaults to $alert-red)
+.map-icon-symbol--important .map-icon-symbol__body {
+  background-color: var(--internal-px-map-icon-important-color);
+}
+.map-icon-symbol--important .map-icon-symbol__descender {
+  border-top-color: var(--internal-px-map-icon-important-color);
+}
+
+// 'warning' modifier - sets icon-warning-color (defaults to $alert-orange)
+.map-icon-symbol--warning .map-icon-symbol__body {
+  background-color: var(--internal-px-map-icon-warning-color);
+}
+.map-icon-symbol--warning .map-icon-symbol__descender {
+  border-top-color: var(--internal-px-map-icon-warning-color);
+}
+
+// 'unknown' modifier - sets icon-unknown-color (defaults to $dv-light-gray)
+.map-icon-symbol--unknown .map-icon-symbol__body {
+  background-color: var(--internal-px-map-icon-unknown-color);
+}
+.map-icon-symbol--unknown .map-icon-symbol__descender {
+  border-top-color: var(--internal-px-map-icon-unknown-color);
+}
+
+// ICON BADGE
+// Only visible if applied with a modifier
+
+.map-icon-symbol__badge {
+  display: block;
+}
+
+%map-icon-symbol__badge--diamond {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: var(--internal-px-map-icon-warning-color);
+  border: 2px solid var(--internal-px-map-icon-border-color);
+  transform: rotate(45deg);
+  position: absolute;
+  left: 26px;
+  top: 0px;
+}
+
+%map-icon-symbol__badge--triangle {
+  display: block;
+  position: absolute;
+  left: 24px;
+  top: -4px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 18px;
+  border-color: transparent transparent var(--internal-px-map-icon-border-color) transparent;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 7px 12px;
+    border-color: transparent transparent var(--internal-px-map-icon-important-color) transparent;
+    z-index: 0;
+    position: absolute;
+    left: -7px;
+    top: 4px;
+  }
+}
+
+// ICON BADGE MODIFIERS
+// Use to add a badge (small alert symbol) to the icon. These modifiers should
+// be extended inside one of the map icon type modifiers
+
+// 'important' and 'with-badge' modifier - adds the triangle icon
+.map-icon-symbol--important.map-icon-symbol--with-badge .map-icon-symbol__badge {
+  @extend %map-icon-symbol__badge--triangle;
+  &:after { border-color: transparent transparent var(--internal-px-map-icon-important-color) transparent; }
+}
+
+// 'warning' and 'with-badge' modifier - adds the triangle icon
+.map-icon-symbol--warning.map-icon-symbol--with-badge .map-icon-symbol__badge {
+  @extend %map-icon-symbol__badge--diamond;
+  background-color: var(--internal-px-map-icon-warning-color);
+}
