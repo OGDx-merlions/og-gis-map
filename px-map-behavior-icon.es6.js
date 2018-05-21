@@ -52,8 +52,12 @@
       // Static options
       let html;
       if(settings.featureProperties.title) {
+        window.__px_map_markergroup_tap = function(elt) {
+          elt.click();
+        };
         html  = `
-          <div class="map-icon-static__wrapper">
+          <div class="map-icon-static__wrapper" 
+            onmouseover="window.__px_map_markergroup_tap(this)">
             <i class="map-icon-static__body" style="${customStyleBackground}"></i>
             <i class="map-icon-static__descender" style="${customStyleBorder}"></i>
             <i class="map-icon-static__badge"></i>
@@ -62,7 +66,8 @@
         `;
       } else {
         html  = `
-          <div class="map-icon-static__wrapper">
+          <div class="map-icon-static__wrapper"
+            onmouseover="window.__px_map_markergroup_tap(this)">
             <i class="map-icon-static__body" style="${customStyleBackground}"></i>
             <i class="map-icon-static__descender" style="${customStyleBorder}"></i>
             <i class="map-icon-static__badge"></i>
@@ -125,7 +130,8 @@
       let html;
       if(settings.featureProperties.title) {
         html  = `
-          <div class="map-icon-symbol__wrapper">
+          <div class="map-icon-symbol__wrapper"
+            onmouseover="window.__px_map_markergroup_tap(this)">
             <i class="map-icon-symbol__body" style="${customStyleBackground}">
               <div class="map-icon-symbol__symbol--container flex flex--middle flex--center">
                 <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; width:100%; height:100%; stroke-width:${strokeWidth}"></px-icon>
@@ -138,7 +144,8 @@
         `;
       } else {
         html  = `
-        <div class="map-icon-symbol__wrapper">
+        <div class="map-icon-symbol__wrapper"
+          onmouseover="window.__px_map_markergroup_tap(this)">
           <i class="map-icon-symbol__body" style="${customStyleBackground}">
             <div class="map-icon-symbol__symbol--container flex flex--middle flex--center">
               <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; width:100%; height:100%; stroke-width:${strokeWidth}"></px-icon>
