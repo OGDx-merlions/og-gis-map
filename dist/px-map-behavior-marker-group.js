@@ -192,7 +192,7 @@ var types=this._indexClusterMarkersByType(markers);// Get the colors for each ty
 var colors=this._colorsByType;// Get the container size for this count
 var containerSize=this._getClusterIconSize(count);// Get the path (chart stroke width) and border width for this chart
 var pathSize=this._getStyleValueAsNum('--internal-px-map-marker-group-cluster-path-size')||10;var borderSize=this._getStyleValueAsNum('--internal-px-map-marker-group-cluster-border-size')||0;// Set up the options to send into ClusterIcon
-var options={count:count,countByType:types,colorsByType:colors,containerSize:containerSize,pathSize:pathSize,borderSize:borderSize,styleScope:this.isShadyScoped()?this.getShadyScope():undefined};return new PxMap.ClusterIcon(options)},/**
+var options={count:count,countByType:types,colorsByType:colors,containerSize:containerSize,pathSize:pathSize,borderSize:borderSize,styleScope:this.isShadyScoped()?this.getShadyScope():undefined,markers:markers};return new PxMap.ClusterIcon(options)},/**
      * Calculates the colors for the marker icons and clusters. The following
      * things are read and applied:
      *

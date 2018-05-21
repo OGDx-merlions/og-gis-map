@@ -149,31 +149,39 @@ $px-map-marker-locate-icon-accuracy-opacity:        var(--px-map-marker-locate-i
 // MAP ICON: CLUSTER
 .map-icon-cluster {
   @extend %map-icon !optional;
-  display: block;
+  display: inline-block;
   position: absolute;
 }
 
 .map-icon-cluster__container {
-  border-radius: 100%;
-  background: $px-map-marker-group-cluster-background-color;
-  display: block;
+  width: 200%;
+  // border-top-left-radius: 200%;
+  // border-top-right-radius: 200%;
+  // background: $px-map-marker-group-cluster-background-color;
+  display: inline-block;
   position: relative;
   box-sizing: border-box;
 }
 .map-icon-cluster__svg {
-  display: block;
+  display: inline-block;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
+  width: 158%;
+  height: 172%;
+  border-top-left-radius: 200%;
+  border-top-right-radius: 200%;
   border-style: solid;
-  border-width: $px-map-marker-group-cluster-border-size;
+  border-bottom: 0%;
+  border-left: 0%;
+  border-right: 0%;
+  border-width: $px-map-marker-group-cluster-border-size ;
   border-color: $px-map-marker-group-cluster-border-color;
 }
 .map-icon-cluster__body {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 158%;
+  height: 50%;
+  border-top-left-radius: 200%;
+  border-top-right-radius: 200%;
   align-items: center;
   justify-content: center;
 
@@ -182,6 +190,22 @@ $px-map-marker-locate-icon-accuracy-opacity:        var(--px-map-marker-locate-i
   font-weight: $px-map-marker-group-cluster-font-weight;
   line-height: $px-map-marker-group-cluster-line-height;
 }
+
+.map-icon-cluster__groups {
+  width: 200%;
+  display: inline-block;
+  text-align: justify;
+  margin-top: -0rem;
+  .type {
+    text-align: center;
+    border-radius: 100%;
+    padding: 1%;
+    border: 1px solid;
+    border-color: $px-map-marker-group-cluster-border-color;
+    display: inline-flex;
+  }
+}
+
 
 /*******************************************************************************
  * POPUPS
