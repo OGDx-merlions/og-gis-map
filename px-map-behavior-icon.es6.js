@@ -382,7 +382,7 @@
                           </g>
                       </g>
                       <text id="Western-Desert-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal" fill="#4A4A4A">
-                          <tspan x="${40 - label.length}" y="110">${label}</tspan>
+                          <tspan x="${20 - label.length}" y="110">${label}</tspan>
                       </text>
                       <text id="18-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="36" font-weight="normal" fill="#59717F">
                           <tspan x="${total > 9 ? 48.848 : 60.848}" y="37">${total}</tspan>
@@ -450,8 +450,9 @@
                           </g>
                       </g>
                       <g id="ref-count-${id}" transform="translate(47.000000, 46.000000)">12</g>
-                      <text id="Western-Desert-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal" fill="#4A4A4A">
-                        <tspan x="${40 - label.length}" y="110">${label}</tspan>
+                      <text id="Western-Desert-${id}" text-anchor="middle"
+                        font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="70" y="110">${label}</tspan>
                       </text>
                       <text id="18-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="36" font-weight="normal" fill="#59717F">
                           <tspan x="${total > 9 ? 48.848 : 60.848}" y="37">${total}</tspan>
