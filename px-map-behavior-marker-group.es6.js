@@ -685,7 +685,7 @@
       iconSettings.type = iconSettings.type || 'info';
 
       iconSettings.color = this._colorsByType[iconSettings.type] || 'black';
-
+      iconSettings.featureProperties = feature.properties;
       const icon = this._createMarkerIcon(iconSettings);
       marker.setIcon(icon);
 
@@ -706,6 +706,7 @@
       const iconSettings = (feature.properties['marker-icon']) ? this._extractMarkerIconSettings(feature.properties['marker-icon']) : {};
       iconSettings.base = iconSettings.base || 'static-icon';
       iconSettings.type = iconSettings.type || 'info';
+      iconSettings.featureProperties = feature.properties;
       const icon = this._createMarkerIcon(iconSettings);
       marker.setIcon(icon);
 

@@ -50,13 +50,25 @@
       }
 
       // Static options
-      const html = `
-        <div class="map-icon-static__wrapper">
-          <i class="map-icon-static__body" style="${customStyleBackground}"></i>
-          <i class="map-icon-static__descender" style="${customStyleBorder}"></i>
-          <i class="map-icon-static__badge"></i>
-        </div>
-      `;
+      let html;
+      if(settings.featureProperties.title) {
+        html  = `
+          <div class="map-icon-static__wrapper">
+            <i class="map-icon-static__body" style="${customStyleBackground}"></i>
+            <i class="map-icon-static__descender" style="${customStyleBorder}"></i>
+            <i class="map-icon-static__badge"></i>
+            <div style="padding-top: 1.5rem; margin-left: -1rem;">${settings.featureProperties.title}</div>
+          </div>
+        `;
+      } else {
+        html  = `
+          <div class="map-icon-static__wrapper">
+            <i class="map-icon-static__body" style="${customStyleBackground}"></i>
+            <i class="map-icon-static__descender" style="${customStyleBorder}"></i>
+            <i class="map-icon-static__badge"></i>
+          </div>
+        `;
+      }
       const iconSize = L.point(23,31);
       const iconAnchor = L.point(7.6, 31);
       const popupAnchor = L.point(1,-31);
@@ -110,17 +122,33 @@
       }
 
       // Icon/Symbol options
-      const html = `
-      <div class="map-icon-symbol__wrapper">
-        <i class="map-icon-symbol__body" style="${customStyleBackground}">
-          <div class="map-icon-symbol__symbol--container flex flex--middle flex--center">
-            <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; width:100%; height:100%; stroke-width:${strokeWidth}"></px-icon>
+      let html;
+      if(settings.featureProperties.title) {
+        html  = `
+          <div class="map-icon-symbol__wrapper">
+            <i class="map-icon-symbol__body" style="${customStyleBackground}">
+              <div class="map-icon-symbol__symbol--container flex flex--middle flex--center">
+                <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; width:100%; height:100%; stroke-width:${strokeWidth}"></px-icon>
+              </div>
+            </i>
+            <i class="map-icon-symbol__descender" style="${customStyleBorder}"></i>
+            <i class="map-icon-symbol__badge"></i>
+            <div style="padding-top: 1.5rem; margin-left: -1rem;">${settings.featureProperties.title}</div>
           </div>
-        </i>
-        <i class="map-icon-symbol__descender" style="${customStyleBorder}"></i>
-        <i class="map-icon-symbol__badge"></i>
-      </div>
-      `;
+        `;
+      } else {
+        html  = `
+        <div class="map-icon-symbol__wrapper">
+          <i class="map-icon-symbol__body" style="${customStyleBackground}">
+            <div class="map-icon-symbol__symbol--container flex flex--middle flex--center">
+              <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; width:100%; height:100%; stroke-width:${strokeWidth}"></px-icon>
+            </div>
+          </i>
+          <i class="map-icon-symbol__descender" style="${customStyleBorder}"></i>
+          <i class="map-icon-symbol__badge"></i>
+        </div>
+        `;
+      }
 
       const iconSize = L.point(40,56);
       const iconAnchor = L.point(19.6, 57);
@@ -164,7 +192,8 @@
 
     createIcon(settings={}) {
       // Extract `count`, `countByType`, `colorsByType`
-      const { count, countByType, colorsByType, containerSize=50, pathSize=10, borderSize=0, className='', styleScope } = settings;
+      const { count, countByType, colorsByType, containerSize=50, 
+        pathSize=10, borderSize=0, className='', styleScope } = settings;
 
       // The chart size is the container size with the border size subtracted out,
       // so we can draw and transform our SVG in the right dimensions
