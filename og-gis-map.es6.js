@@ -184,7 +184,7 @@
         }
       },
       /**
-       * An object formatted as a GeoJSON FeatureCollection with one or many Features.
+       * An array of objects formatted as a GeoJSON FeatureCollection with one or many Features.
        * Each feature should be a point that will be represented as a marker.
        * See the `px-map-marker-group` API documentation page for an in-depth
        * guide that explains how to configure your features.
@@ -207,10 +207,10 @@
        *
        * @type {Object}
        */
-      markerGroup: {
-        type: Object,
+      markerGroups: {
+        type: Array,
         value() {
-          return {};
+          return [];
         }
       },
       /**

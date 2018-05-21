@@ -42,7 +42,7 @@
           zoom="{{props.zoom.value}}" lat="{{props.lat.value}}"
           lng="{{props.lng.value}}" tile-url="{{props.tileUrl.value}}"
           features="{{props.features.value}}" feature-styles="{{props.featureStyles.value}}"
-          marker-group="{{props.markerGroup.value}}" colors-by-type="{{props.colorsByType.value}}"
+          marker-groups="{{props.markerGroups.value}}" colors-by-type="{{props.colorsByType.value}}"
           regions="{{props.regions.value}}" on-px-map-marker-group-marker-tapped="_test"
           cluster-config="{{props.clusterConfig.value}}">
         </og-gis-map>
@@ -1530,9 +1530,9 @@
         defaultValue: {"color":"#3E87E8", "fillColor": "#3E87E8"},
         inputType: 'code:JSON'
       },
-      markerGroup: {
-        type: Object,
-        defaultValue: {
+      markerGroups: {
+        type: Array,
+        defaultValue: [{
           "type": "FeatureCollection",
           "features": [
             {
@@ -3264,7 +3264,7 @@
               "id": 68
             }
           ]
-        },
+        }],
         inputType: 'code:JSON'
       },
       colorsByType: {

@@ -239,6 +239,7 @@
         elt.childNodes[3].style.display = "";
       }
       const id = new Date().getTime();
+      const regionLabel = oil.label || gas.label || ref.label || '';
       const html = `
         <px-tooltip
           style="margin: 2rem;"
@@ -253,12 +254,12 @@
           <div class="map-icon-cluster__groups" style="display:none">
             ${this._generateClusterIconSVGWithCount(
               colorsByType, chartSize, count, 
-              oil.label || '', oil, gas, ref)}
+              regionLabel, oil, gas, ref)}
           </div>
           <div class="map-icon-cluster__groups">
             ${this._generateClusterIconSVG(
               colorsByType, chartSize, count, 
-              oil.label || '', oil, gas, ref)}
+              regionLabel, oil, gas, ref)}
           </div>
         </div>
       `;
@@ -300,17 +301,17 @@
           if('oil' === cluster.type) {
             ++oil.count;
             oil.production += cluster.production;
-            oil.label = _m.label;
+            oil.label = cluster.label;
             updateTypeIfHigher(oil, _m.featureProperties);
           } else if('gas' === cluster.type) {
             ++gas.count;
             gas.production += cluster.production;
-            gas.label = _m.label;
+            gas.label = cluster.label;
             updateTypeIfHigher(gas, _m.featureProperties);
           } else if('ref' === cluster.type) {
             ++ref.count;
             ref.production += cluster.production;
-            ref.label = _m.label;
+            ref.label = cluster.label;
             updateTypeIfHigher(ref, _m.featureProperties);
           }
         }
@@ -381,7 +382,7 @@
                           </g>
                       </g>
                       <text id="Western-Desert-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal" fill="#4A4A4A">
-                          <tspan x="5" y="110">${label}</tspan>
+                          <tspan x="${40 - label.length}" y="110">${label}</tspan>
                       </text>
                       <text id="18-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="36" font-weight="normal" fill="#59717F">
                           <tspan x="${total > 9 ? 48.848 : 60.848}" y="37">${total}</tspan>
@@ -450,7 +451,7 @@
                       </g>
                       <g id="ref-count-${id}" transform="translate(47.000000, 46.000000)">12</g>
                       <text id="Western-Desert-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal" fill="#4A4A4A">
-                          <tspan x="5" y="110">${label}</tspan>
+                        <tspan x="${40 - label.length}" y="110">${label}</tspan>
                       </text>
                       <text id="18-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="36" font-weight="normal" fill="#59717F">
                           <tspan x="${total > 9 ? 48.848 : 60.848}" y="37">${total}</tspan>

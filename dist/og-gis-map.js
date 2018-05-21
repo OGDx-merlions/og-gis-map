@@ -114,7 +114,7 @@
        *
        * @type {Object}
        */featureStyle:{type:Object,value:function value(){return{}}},/**
-       * An object formatted as a GeoJSON FeatureCollection with one or many Features.
+       * An array of objects formatted as a GeoJSON FeatureCollection with one or many Features.
        * Each feature should be a point that will be represented as a marker.
        * See the `px-map-marker-group` API documentation page for an in-depth
        * guide that explains how to configure your features.
@@ -136,7 +136,7 @@
        * - {Object} `properties.marker-popup`: [OPTIONAL] Settings to configure a marker icon
        *
        * @type {Object}
-       */markerGroup:{type:Object,value:function value(){return{}}},/**
+       */markerGroups:{type:Array,value:function value(){return[]}},/**
        * An object mapping categories of icons to their respective colors. Each
        * key should be a string representing the name of an `icon-type` to
        * a valid CSS color value (e.g. hex color, `rgb()` color). Set the
