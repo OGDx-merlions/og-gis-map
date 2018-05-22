@@ -193,7 +193,7 @@
     createIcon(settings={}) {
       // Extract `count`, `countByType`, `colorsByType`
       const { count, countByType, colorsByType, containerSize=50, 
-        pathSize=10, borderSize=0, className='', styleScope } = settings;
+        pathSize=10, borderSize=0, className='', styleScope, markers } = settings;
 
       // The chart size is the container size with the border size subtracted out,
       // so we can draw and transform our SVG in the right dimensions
@@ -205,10 +205,43 @@
       // Get the SVG for this icon
       const svg = this._generateClusterIconSVG(countByType, colorsByType, chartSize, pathSize);
 
+      const markerTypeArray = this._getOilGasRefCount(markers);
+      const [oil, gas, ref] = markerTypeArray;
+      const id = new Date().getTime();
+      const regionLabel = oil.label || gas.label || ref.label || '';
       // Generate the classes and wrapper HTML
       const classes = `map-icon-cluster ${className||''} ${styleScope||''}`;
+      const tooltipMsgHtml = `
+        <div style="width: 200%">
+          <div>
+            <span style="padding-right: 3rem;">${regionLabel}</span>
+            <b>${oil.production+gas.production+ref.production} BOE/day</b>
+          </div>
+          <div style="display: inline-block; padding-top: 1rem;">
+            <span style="padding-right: 1rem;">
+              <px-icon icon="px-obj:line-og"></px-icon>
+              <span style="font-weight: bold; font-size: 2rem;">${oil.count}</span>
+            </span>
+            <span style="padding-right: 1rem;">
+              <px-icon icon="px-obj:boiler"></px-icon>
+              <span style="font-weight: bold; font-size: 2rem;">${gas.count}</span>
+            </span>
+            <span style="padding-right: 1rem;">
+              <px-icon icon="px-obj:hrsg"></px-icon>
+              <span style="font-weight: bold; font-size: 2rem;">${ref.count}</span>
+            </span>
+          </div>
+        </div>
+      `;
       const html = `
-        <div class="map-icon-cluster__container" style="width: ${containerSize}px; height: ${containerSize}px">
+        <px-tooltip
+          style="margin: 2rem;"
+          for="cluster-${id}"
+          orientation="auto">
+          ${tooltipMsgHtml}
+        </px-tooltip>  
+        <div class="map-icon-cluster__container" id="cluster-${id}"
+          style="width: ${containerSize}px; height: ${containerSize}px">
           <i class="map-icon-cluster__svg">${svg}</i>
           <div class="map-icon-cluster__body">${count}</div>
         </div>
@@ -222,6 +255,51 @@
       };
 
       return L.divIcon(options);
+    }
+
+    _getOilGasRefCount(markers) {
+      let oil = {"count": 0, "type": "unknown", "production": 0,
+                 "icon": "px-obj:line-og", "label": ""}, 
+          gas = {"count": 0, "type": "unknown", "production": 0,
+                 "icon": "px-obj:boiler", "label": ""}, 
+          ref = {"count": 0, "type": "unknown", "production": 0,
+                 "icon": "px-obj:hrsg", "label": ""};
+      let cluster;
+      const updateTypeIfHigher = (obj, marker) => {
+        if(marker["marker-icon"] && marker["marker-icon"]["icon-type"]) {
+          const iconType = marker["marker-icon"]["icon-type"];
+          if("warning" == iconType && obj.type !== "important") {
+            obj.type = "warning";
+          } else if("important" == iconType) {
+            obj.type = "important";
+          } else if("info" == iconType 
+              && obj.type == "unknown") {
+            obj.type = "info";   
+          }
+        }
+      }
+      markers.forEach((_m) => {
+        cluster = _m.featureProperties.cluster;
+        if(cluster) {
+          if('oil' === cluster.type) {
+            ++oil.count;
+            oil.production += cluster.production;
+            oil.label = cluster.label;
+            updateTypeIfHigher(oil, _m.featureProperties);
+          } else if('gas' === cluster.type) {
+            ++gas.count;
+            gas.production += cluster.production;
+            gas.label = cluster.label;
+            updateTypeIfHigher(gas, _m.featureProperties);
+          } else if('ref' === cluster.type) {
+            ++ref.count;
+            ref.production += cluster.production;
+            ref.label = cluster.label;
+            updateTypeIfHigher(ref, _m.featureProperties);
+          }
+        }
+      });
+      return [oil, gas, ref];
     }
 
     _generateClusterIconSVG(countByType, colorsByType, chartSize, pathSize) {

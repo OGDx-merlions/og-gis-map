@@ -62,9 +62,11 @@ REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
       zoom='[[zoom]]' style$="width: [[width]]; height: [[height]];">
       <px-map-tile-layer url='[[tileUrl]]'>
       </px-map-tile-layer>
-      <px-map-marker-group 
-        cluster-config="[[clusterConfig]]"
-        name="MarkerGroup" data="[[markerGroup]]"></px-map-marker-group>
+      <template is="dom-repeat" items="[[markerGroups]]">
+        <px-map-marker-group 
+          cluster-config="[[clusterConfig]]"
+          data="[[item]]"></px-map-marker-group>
+      </template>
       <px-map-layer-geojson 
         data='[[features]]' show-feature-properties
         feature-style='[[featureStyle]]'>

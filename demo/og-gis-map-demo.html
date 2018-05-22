@@ -42,7 +42,7 @@
           zoom="{{props.zoom.value}}" lat="{{props.lat.value}}"
           lng="{{props.lng.value}}" tile-url="{{props.tileUrl.value}}"
           features="{{props.features.value}}" feature-styles="{{props.featureStyles.value}}"
-          marker-group="{{props.markerGroup.value}}" colors-by-type="{{props.colorsByType.value}}"
+          marker-groups="{{props.markerGroups.value}}" colors-by-type="{{props.colorsByType.value}}"
           regions="{{props.regions.value}}" on-px-map-marker-group-marker-tapped="_test"
           cluster-config="{{props.clusterConfig.value}}">
         </og-gis-map>
@@ -1530,1398 +1530,1836 @@
         defaultValue: {"color":"#3E87E8", "fillColor": "#3E87E8"},
         inputType: 'code:JSON'
       },
-      markerGroup: {
-        type: Object,
-        defaultValue: {
-					"type": "FeatureCollection",
-					"features": [
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 1
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 2
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 3
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 4
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 5
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 6
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 7
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 8
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 9
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 10
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 11
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 12
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 13
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 14
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 15
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "warning"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 16
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "warning"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 17
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.451934,
-									30.679871
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "warning"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 18
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 19
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 20
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 21
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 22
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 23
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 24
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 25
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "warning"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 26
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.291531856375627,
-									32.02606446047858
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "warning"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 27
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									28.999895,
-									30.842836
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "Al Hamra Port",
-									"popup-description": ""
-								}
-							},
-							"id": 28
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									29.928240,
-									31.205303
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "warning"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "Alexandria Refinery",
-									"popup-description": ""
-								}
-							},
-							"id": 29
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									30.5499489,
-									31.20716599
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 30
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									30.5499489,
-									31.20716599
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 31
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 32
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 33
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 34
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 35
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 36
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 37
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 38
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 39
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 40
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 41
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "warning"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 42
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									32.118404,
-									29.130434
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "warning"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 43
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									34,
-									29.5
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 44
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									34,
-									29.5
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 45
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									34,
-									29.5
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 46
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									34,
-									29.5
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 47
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 48
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 49
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 50
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 51
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 52
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 53
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 54
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 55
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 56
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.6628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 57
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 58
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 59
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 60
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									25.8628299,
-									28.3162027
-								]
-							},
-							"properties": {
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup"
-								}
-							},
-							"id": 61
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.6628299,
-									29.3262027
-								]
-							},
-							"properties": {
-                "title": "South Umbarka",
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "South Umbarka",
-									"popup-description": ""
-								}
-							},
-							"id": 62
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.6628299,
-									29.6162027
-								]
-							},
-							"properties": {
-                "title": "Umbarka",
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "Umbarka",
-									"popup-description": ""
-								}
-							},
-							"id": 63
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.8628299,
-									29.4162027
-								]
-							},
-							"properties": {
-                "title": "Salam",
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "important"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "Salam - running at 105%",
-									"popup-description": "Production Loss of 20,000 bbl/day"
-								}
-							},
-							"id": 64
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									27.1628299,
-									29.4062027
-								]
-							},
-							"properties": {
-                "title": "Meleha",
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "Meleha",
-									"popup-description": ""
-								}
-							},
-							"id": 65
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.8628299,
-									29.1862027
-								]
-							},
-							"properties": {
-                "title": "Bed 2",
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "Bed 2",
-									"popup-description": ""
-								}
-							},
-							"id": 66
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									27.1498299,
-									29.1162027
-								]
-							},
-							"properties": {
-                "title": "Bed 3",
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "Bed 3 -running at 90%",
-									"popup-description": ""
-								}
-							},
-							"id": 67
-						},
-						{
-							"type": "Feature",
-							"geometry": {
-								"type": "Point",
-								"coordinates": [
-									26.9998299,
-									29.0002027
-								]
-							},
-							"properties": {
-                "title": "Sitra 5",
-								"marker-icon": {
-									"icon-base": "static-icon",
-									"icon-type": "info"
-								},
-								"marker-popup": {
-									"popup-base": "info-popup",
-									"popup-title": "Sitra 5",
-									"popup-description": ""
-								}
-							},
-							"id": 68
-						}
-					]
-				},
+      markerGroups: {
+        type: Array,
+        defaultValue: [
+          {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 1
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 2
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 3
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 4
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 5
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 6
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 7
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 8
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 9
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 10
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 11
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 12
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 13
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 14
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 15
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 16
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 17
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.451934,
+                    30.679871
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Gulf of Suez",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 18
+              }
+            ]
+          },
+          {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 19
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 20
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 21
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 22
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 23
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 24
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 25
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 26
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.291531856375627,
+                    32.02606446047858
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Mediterranean",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 27
+              }
+            ]
+          },
+          {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    28.999895,
+                    30.842836
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "Al Hamra Port",
+                    "popup-description": ""
+                  },
+                  "cluster": {
+                    "label": "Upper Egypt",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 28
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    29.92824,
+                    31.205303
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "Alexandria Refinery",
+                    "popup-description": ""
+                  },
+                  "cluster": {
+                    "label": "Upper Egypt",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 29
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    30.5499489,
+                    31.20716599
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Upper Egypt",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 30
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    30.5499489,
+                    31.20716599
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Upper Egypt",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 31
+              }
+            ]
+          },
+          {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 32
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 33
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 34
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 35
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 36
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 37
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 38
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 39
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 40
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 41
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 42
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    32.118404,
+                    29.130434
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "warning",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Red Sea",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 43
+              }
+            ]
+          },
+          {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    34,
+                    29.5
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Sinai",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 44
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    34,
+                    29.5
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Sinai",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 45
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    34,
+                    29.5
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Sinai",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 46
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    34,
+                    29.5
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Sinai",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 47
+              }
+            ]
+          },
+          {
+            "type": "FeatureCollection",
+            "features": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 48
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 49
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 50
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 51
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 52
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 53
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 54
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "ref",
+                    "production": 100
+                  }
+                },
+                "id": 55
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 56
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.6628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "gas",
+                    "production": 100
+                  },
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  }
+                },
+                "id": 57
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 58
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "gas",
+                    "production": 100
+                  }
+                },
+                "id": 59
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "ref",
+                    "production": 100
+                  },
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:hrsg"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  }
+                },
+                "id": 60
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    25.8628299,
+                    28.3162027
+                  ]
+                },
+                "properties": {
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  },
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup"
+                  }
+                },
+                "id": 61
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.6628299,
+                    29.3262027
+                  ]
+                },
+                "properties": {
+                  "title": "South Umbarka",
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "South Umbarka",
+                    "popup-description": ""
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 62
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.6628299,
+                    29.6162027
+                  ]
+                },
+                "properties": {
+                  "title": "Umbarka",
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "Umbarka",
+                    "popup-description": ""
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 63
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.8628299,
+                    29.4162027
+                  ]
+                },
+                "properties": {
+                  "title": "Salam",
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "important",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "Salam - running at 105%",
+                    "popup-description": "Production Loss of 20,000 bbl/day"
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 64
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    27.1628299,
+                    29.4062027
+                  ]
+                },
+                "properties": {
+                  "title": "Meleha",
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "gas",
+                    "production": 100
+                  },
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:boiler"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "Meleha",
+                    "popup-description": ""
+                  }
+                },
+                "id": 65
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "cluster": {
+                    "type": "oil"
+                  },
+                  "coordinates": [
+                    26.8628299,
+                    29.1862027
+                  ]
+                },
+                "properties": {
+                  "title": "Bed 2",
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "Bed 2",
+                    "popup-description": ""
+                  },
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  }
+                },
+                "id": 66
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    27.1498299,
+                    29.1162027
+                  ]
+                },
+                "properties": {
+                  "title": "Bed 3",
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  },
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "Bed 3 -running at 90%",
+                    "popup-description": ""
+                  }
+                },
+                "id": 67
+              },
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    26.9998299,
+                    29.0002027
+                  ]
+                },
+                "properties": {
+                  "title": "Sitra 5",
+                  "cluster": {
+                    "label": "Western Desert",
+                    "type": "oil",
+                    "production": 100
+                  },
+                  "marker-icon": {
+                    "icon-base": "symbol-icon",
+                    "icon-type": "info",
+                    "icon-icon": "px-obj:line-og"
+                  },
+                  "marker-popup": {
+                    "popup-base": "info-popup",
+                    "popup-title": "Sitra 5",
+                    "popup-description": ""
+                  }
+                },
+                "id": 68
+              }
+            ]
+          }
+        ],
         inputType: 'code:JSON'
       },
       colorsByType: {
