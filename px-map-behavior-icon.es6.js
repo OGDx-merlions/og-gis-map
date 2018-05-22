@@ -139,7 +139,7 @@
             </i>
             <i class="map-icon-symbol__descender" style="${customStyleBorder}"></i>
             <i class="map-icon-symbol__badge"></i>
-            <div style="padding-top: 1.5rem; margin-left: -1rem;">${settings.featureProperties.title}</div>
+            <div style="padding-top: 3rem; margin-left: 0rem;">${settings.featureProperties.title}</div>
           </div>
         `;
       } else {
