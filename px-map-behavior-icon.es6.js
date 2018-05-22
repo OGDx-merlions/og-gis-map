@@ -51,10 +51,10 @@
 
       // Static options
       let html;
+      window.__px_map_markergroup_tap = function(elt) {
+        elt.click();
+      };
       if(settings.featureProperties.title) {
-        window.__px_map_markergroup_tap = function(elt) {
-          elt.click();
-        };
         html  = `
           <div class="map-icon-static__wrapper" 
             onmouseover="window.__px_map_markergroup_tap(this)">
