@@ -128,6 +128,9 @@
 
       // Icon/Symbol options
       let html;
+      window.__px_map_markergroup_tap = function(elt) {
+        elt.click();
+      };
       if(settings.featureProperties.title) {
         html  = `
           <div class="map-icon-symbol__wrapper"
