@@ -57,7 +57,7 @@
             <i class="map-icon-static__body" style="${customStyleBackground}"></i>
             <i class="map-icon-static__descender" style="${customStyleBorder}"></i>
             <i class="map-icon-static__badge"></i>
-            <div style="padding-top: 1.5rem; margin-left: -1rem;">${settings.featureProperties.title}</div>
+            <div style="padding-top: 1.5rem; margin-left: -1rem; color: black;">${settings.featureProperties.title}</div>
           </div>
         `;
       } else {
@@ -133,7 +133,7 @@
             </i>
             <i class="map-icon-symbol__descender" style="${customStyleBorder}"></i>
             <i class="map-icon-symbol__badge"></i>
-            <div style="padding-top: 1.5rem; margin-left: -1rem;">${settings.featureProperties.title}</div>
+            <div style="padding-top: 3.5rem; margin-left: -1rem; color: black;">${settings.featureProperties.title}</div>
           </div>
         `;
       } else {
