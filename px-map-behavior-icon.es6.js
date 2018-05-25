@@ -126,6 +126,7 @@
       // Icon/Symbol options
       let html;
       if(settings.featureProperties.title) {
+        stroke = 'black';
         html  = `
           <div class="map-icon-symbol__wrapper">
             <i class="map-icon-symbol__body" style="${customStyleBackground}">
@@ -206,9 +207,6 @@
       // The icon size is a point representing the size of the icon's outer container
       const iconSize = L.point(containerSize, containerSize);
 
-      // Get the SVG for this icon
-      const svg = this._generateClusterIconSVG(countByType, colorsByType, chartSize, pathSize);
-
       const markerTypeArray = this._getOilGasRefCount(markers);
       const [oil, gas, ref] = markerTypeArray;
       const id = new Date().getTime();
@@ -237,6 +235,9 @@
           </div>
         </div>
       `;
+
+      // Get the SVG for this icon
+      const svg = this._generateClusterIconSVG(countByType, colorsByType, chartSize, pathSize, oil, gas, ref, regionLabel);
       const html = `
         <px-tooltip
           style="margin: 2rem;"
@@ -244,11 +245,7 @@
           orientation="auto">
           ${tooltipMsgHtml}
         </px-tooltip>  
-        <div class="map-icon-cluster__container" id="cluster-${id}"
-          style="width: ${containerSize}px; height: ${containerSize}px">
-          <i class="map-icon-cluster__svg">${svg}</i>
-          <div class="map-icon-cluster__body">${count}</div>
-        </div>
+        <i class="map-icon-cluster__svg">${svg}</i>
       `;
 
       // Define the `divIcon` options
@@ -306,7 +303,7 @@
       return [oil, gas, ref];
     }
 
-    _generateClusterIconSVG(countByType, colorsByType, chartSize, pathSize) {
+    _generateClusterIconSVG(countByType, colorsByType, chartSize, pathSize, oil, gas, ref, regionLabel) {
       // Combine the `countByType` and `colorsByType` into one array of objects,
       // each describing a type with its associated count and color
       const typeKeys = Object.keys(countByType);
@@ -327,10 +324,11 @@
       }
 
       // Return the pie chart
-      return this.createPieChart(types, colors, chartSize, pathSize);
+      return this.createPieChart(types, colors, chartSize, pathSize, oil, gas, ref, regionLabel);
     }
 
-    createPieChart(groupsArray, colorsArray, chartSize, pathSize) {
+    createPieChart(groupsArray, colorsArray, chartSize, pathSize, oil, gas, ref, regionLabel) {
+      console.log(oil, regionLabel);
       // Create a pie generator and pass it the `groupsArray` to create a set
       // of arcs we can draw as a donut pie cart
       const pieGeneratorFn = Px.d3.pie();
@@ -351,13 +349,34 @@
       // For each path, generate a `<path>` tag with the correct attributes
       const pathTmpl = (pathData, pathIndex) => `<path d="${arcPathGeneratorFn(pathData)}" fill="${colorsArray[pathIndex]}" opacity="1"></path>`;
 
+      // return `
+      //   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="none" viewBox="0 0 ${chartSize} ${chartSize}">
+      //       <g transform="translate(${radius}, ${radius})">
+      //           ${pathListTmpl(arcData)}
+      //       </g>
+      //   </svg>
+      // `;
+      const id = new Date().getTime();
+      const col = regionLabel == "Reggane (Adrar)" ? "#be4748" : "#679f00";
       return `
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="none" viewBox="0 0 ${chartSize} ${chartSize}">
-            <g transform="translate(${radius}, ${radius})">
-                ${pathListTmpl(arcData)}
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="none" width="131px" height="109px" viewBox="0 0 140 120">
+      <g id="MOP-${id}" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1a.-Ministry-dashboard-Copy-3-${id}" transform="translate(-1113.000000, -429.000000)">
+            <g id="Group-2-${id}" transform="translate(1114.000000, 430.000000)">
+                <circle id="Oval-4-${id}" stroke="#9B9B9B" stroke-width="2" cx="60.5" cy="39.5" r="36.5"></circle>
+                <g id="Group-Copy-7-${id}" transform="translate(0.000000, 22.000000)">
+                    <text id="Eastern-Desert-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="15" font-weight="normal" fill="#4A4A4A">
+                        <tspan x="75" y="65">${regionLabel}</tspan>
+                    </text>
+                    <circle id="Oval-3-${id}" stroke="#9B9B9B" fill="${col}" cx="22.5" cy="41.5" r="22.5"></circle>
+                    <text id="12-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="36" font-weight="normal" fill="#59717F">
+                        <tspan x="45.848" y="28">${oil.count}</tspan>
+                    </text>
+                </g>
             </g>
-        </svg>
-      `;
+        </g>
+      </g>
+      </svg>`;
     }
   };
   /* Bind ClusterIcon klass */
