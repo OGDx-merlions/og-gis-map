@@ -357,7 +357,7 @@
       //   </svg>
       // `;
       const id = new Date().getTime();
-      const col = regionLabel == "Reggane (Adrar)" ? "#be4748" : "#679f00";
+      const col = regionLabel == "Reggane" ? "#be4748" : "#679f00";
       return `
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="none" width="131px" height="109px" viewBox="0 0 140 120">
       <g id="MOP-${id}" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
