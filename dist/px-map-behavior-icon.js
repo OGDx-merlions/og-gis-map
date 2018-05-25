@@ -41,7 +41,7 @@ var options={iconSize:iconSize,className:classes,html:html};return L.divIcon(opt
 var typeKeys=Object.keys(countByType);var typeObjs=typeKeys.map(function(type){return{type:type,count:countByType[type],color:colorsByType[type]}});// Sort the types from highest->lowest
 typeObjs.sort(function(a,b){return a.count-b.count});// Create two parallel arrays of [types] and [colors]
 var types=[];var colors=[];var i=void 0,len=void 0,type=void 0,total=void 0;for(i=0,len=typeKeys.length;i<len;i++){type=typeKeys[i];total=countByType[type];types.push(countByType[type]);colors.push(colorsByType[type])}// Return the pie chart
-return this.createPieChart(types,colors,chartSize,pathSize,oil,gas,ref,regionLabel)}},{key:'createPieChart',value:function createPieChart(groupsArray,colorsArray,chartSize,pathSize,oil,gas,ref,regionLabel){console.log(oil,regionLabel);// Create a pie generator and pass it the `groupsArray` to create a set
+return this.createPieChart(types,colors,chartSize,pathSize,oil,gas,ref,regionLabel)}},{key:'createPieChart',value:function createPieChart(groupsArray,colorsArray,chartSize,pathSize,oil,gas,ref,regionLabel){// Create a pie generator and pass it the `groupsArray` to create a set
 // of arcs we can draw as a donut pie cart
 var pieGeneratorFn=Px.d3.pie();var arcData=pieGeneratorFn(groupsArray);// Calculate the `radius` and `innerRadius` of the chart
 var radius=chartSize/2;var innerRadius=radius-pathSize;// Create a path generator. Individual entries of `arcData` can be passed
