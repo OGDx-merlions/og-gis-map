@@ -328,7 +328,6 @@
     }
 
     createPieChart(groupsArray, colorsArray, chartSize, pathSize, oil, gas, ref, regionLabel) {
-      console.log(oil, regionLabel);
       // Create a pie generator and pass it the `groupsArray` to create a set
       // of arcs we can draw as a donut pie cart
       const pieGeneratorFn = Px.d3.pie();
