@@ -75,7 +75,11 @@ REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
       <px-map-control-zoom position="bottomright"></px-map-control-zoom>
       <px-map-control-scale metric-units position="bottomleft"></px-map-control-scale>
     </px-map>
-    <slot name="context-pane"></slot>
+    <div class="flex flex--row u-1/1" id="context-pane">
+      <div class="u-1/3">Col 1</div>
+      <div class="u-1/3">Col 2</div>
+      <div class="u-1/3">Col 3</div>
+    </div>
   </template>
 </dom-module>
 <script src="dist/og-gis-map.js"></script>
