@@ -198,7 +198,7 @@
       if (!this.elementInst) return;
 
       const {data} = this.getInstOptions();
-      const features = this._syncDataWithMarkers(data.features, this.elementInst);
+      const features = this._syncDataWithMarkers(data.features, this.elementInst, data.cluster);
       this._notifyNewFeatures(features);
     },
 
@@ -258,7 +258,8 @@
       const cluster = L.markerClusterGroup(options);
 
       if (options.data) {
-        const features = this._syncDataWithMarkers(options.data.features, cluster);
+        const features = this._syncDataWithMarkers(
+          options.data.features, cluster, options.data.cluster);
         this._notifyNewFeatures(features);
       }
 
@@ -267,7 +268,8 @@
 
     updateInst(lastOptions, nextOptions) {
       if (nextOptions.data) {
-        const features = this._syncDataWithMarkers(nextOptions.data.features, this.elementInst);
+        const features = this._syncDataWithMarkers(
+          nextOptions.data.features, this.elementInst, nextOptions.data.cluster);
         this._notifyNewFeatures(features);
       }
     },
@@ -548,7 +550,7 @@
      * @param {L.MarkerClusterGroup} clusterInst
      * @return {Set} features
      */
-    _syncDataWithMarkers(newFeatures, clusterInst) {
+    _syncDataWithMarkers(newFeatures, clusterInst, clusterData) {
       if (!newFeatures.length) return;
 
       const featuresSet = this._features = (this._features || new Set());
@@ -561,6 +563,7 @@
       if (featuresToAdd.size) {
         markersToOperate = [];
         for (feature of featuresToAdd) {
+          feature.cluster = clusterData;
           cachedMarker = nextMarkersMap.get(feature);
           cachedMarker.marker = this._createMarker(feature);
           markersToOperate.push(cachedMarker.marker);
@@ -573,6 +576,7 @@
       if (featuresToUpdate.size) {
         markersToOperate = [];
         for (feature of featuresToUpdate) {
+          feature.cluster = clusterData;
           cachedMarker = nextMarkersMap.get(feature);
           cachedMarker.marker = this._updateMarker(feature, cachedMarker.marker);
           markersToOperate.push(cachedMarker.marker);
@@ -585,6 +589,7 @@
       if (featuresToRemove.size) {
         markersToOperate = [];
         for (feature of featuresToRemove) {
+          feature.cluster = clusterData;
           cachedMarker = nextMarkersMap.get(feature);
           markersToOperate.push(cachedMarker.marker);
           nextMarkersMap.delete(feature);
@@ -687,6 +692,7 @@
 
       iconSettings.color = this._colorsByType[iconSettings.type] || 'black';
       iconSettings.featureProperties = feature.properties;
+      iconSettings.cluster = feature.cluster;
       const icon = this._createMarkerIcon(iconSettings);
       marker.setIcon(icon);
 
@@ -708,6 +714,7 @@
       iconSettings.base = iconSettings.base || 'static-icon';
       iconSettings.type = iconSettings.type || 'info';
       iconSettings.featureProperties = feature.properties;
+      iconSettings.cluster = feature.cluster;
       const icon = this._createMarkerIcon(iconSettings);
       marker.setIcon(icon);
 
@@ -744,7 +751,6 @@
       // Otherwise, attempt to convert the feature's 'icon-base' to a klass name
       // and call the constructor for that klass
       const klassName = this._strToKlassName(options.base);
-
       return new PxMap[klassName](options);
     },
 

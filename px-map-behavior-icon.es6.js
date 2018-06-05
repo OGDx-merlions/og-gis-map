@@ -51,13 +51,12 @@
 
       // Static options
       let html;
-      window.__px_map_markergroup_tap = function(elt) {
-        elt.click();
-      };
+      // window.__px_map_markergroup_tap = function(elt) {
+      //   elt.click();
+      // };
       if(settings.featureProperties.title) {
         html  = `
-          <div class="map-icon-static__wrapper" 
-            onmouseover="window.__px_map_markergroup_tap(this)">
+          <div class="map-icon-static__wrapper">
             <i class="map-icon-static__body" style="${customStyleBackground}"></i>
             <i class="map-icon-static__descender" style="${customStyleBorder}"></i>
             <i class="map-icon-static__badge"></i>
@@ -66,8 +65,7 @@
         `;
       } else {
         html  = `
-          <div class="map-icon-static__wrapper"
-            onmouseover="window.__px_map_markergroup_tap(this)">
+          <div class="map-icon-static__wrapper">
             <i class="map-icon-static__body" style="${customStyleBackground}"></i>
             <i class="map-icon-static__descender" style="${customStyleBorder}"></i>
             <i class="map-icon-static__badge"></i>
@@ -128,13 +126,12 @@
 
       // Icon/Symbol options
       let html;
-      window.__px_map_markergroup_tap = function(elt) {
-        elt.click();
-      };
+      // window.__px_map_markergroup_tap = function(elt) {
+      //   elt.click();
+      // };
       if(settings.featureProperties.title) {
         html  = `
-          <div class="map-icon-symbol__wrapper"
-            onmouseover="window.__px_map_markergroup_tap(this)">
+          <div class="map-icon-symbol__wrapper">
             <i class="map-icon-symbol__body" style="${customStyleBackground}">
               <div class="map-icon-symbol__symbol--container flex flex--middle flex--center">
                 <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; width:100%; height:100%; stroke-width:${strokeWidth}"></px-icon>
@@ -147,8 +144,7 @@
         `;
       } else {
         html  = `
-        <div class="map-icon-symbol__wrapper"
-          onmouseover="window.__px_map_markergroup_tap(this)">
+        <div class="map-icon-symbol__wrapper">
           <i class="map-icon-symbol__body" style="${customStyleBackground}">
             <div class="map-icon-symbol__symbol--container flex flex--middle flex--center">
               <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; width:100%; height:100%; stroke-width:${strokeWidth}"></px-icon>
@@ -275,128 +271,6 @@
       };
 
       return L.divIcon(options);
-    }
-
-    _getOilGasRefCount(markers) {
-      let oil = {"count": 0, "type": "unknown", "production": 0,
-                 "icon": "px-obj:line-og", "label": ""}, 
-          gas = {"count": 0, "type": "unknown", "production": 0,
-                 "icon": "px-obj:boiler", "label": ""}, 
-          ref = {"count": 0, "type": "unknown", "production": 0,
-                 "icon": "px-obj:hrsg", "label": ""};
-      let cluster;
-      const updateTypeIfHigher = (obj, marker) => {
-        if(marker["marker-icon"] && marker["marker-icon"]["icon-type"]) {
-          const iconType = marker["marker-icon"]["icon-type"];
-          if("warning" == iconType && obj.type !== "important") {
-            obj.type = "warning";
-          } else if("important" == iconType) {
-            obj.type = "important";
-          } else if("info" == iconType 
-              && obj.type == "unknown") {
-            obj.type = "info";   
-          }
-        }
-      }
-      markers.forEach((_m) => {
-        cluster = _m.featureProperties.cluster;
-        if(cluster) {
-          if('oil' === cluster.type) {
-            ++oil.count;
-            oil.production += cluster.production;
-            oil.label = cluster.label;
-            updateTypeIfHigher(oil, _m.featureProperties);
-          } else if('gas' === cluster.type) {
-            ++gas.count;
-            gas.production += cluster.production;
-            gas.label = cluster.label;
-            updateTypeIfHigher(gas, _m.featureProperties);
-          } else if('ref' === cluster.type) {
-            ++ref.count;
-            ref.production += cluster.production;
-            ref.label = cluster.label;
-            updateTypeIfHigher(ref, _m.featureProperties);
-          }
-        }
-      });
-      return [oil, gas, ref];
-    }
-
-    _generateClusterIconSVGWithCount(colorsByType, chartSize, total, label, oil, gas, ref) {
-      let oilCount = oil.count;
-      let gasCount = gas.count;
-      let refCount = ref.count;
-      let id = new Date().getTime();
-      return `
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-          preserveAspectRatio="none" viewBox="0 0 ${chartSize*3} ${chartSize*3}">
-          <defs>
-            <text id="oil-${id}"
-              font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal">
-              <tspan x="${oilCount > 9 ? 11 : 18}" y="28">${oilCount}</tspan>
-            </text> 
-            <text id="gas-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal">
-                <tspan x="${gasCount > 9 ? 11 : 18}" y="28">${gasCount}</tspan>
-            </text> 
-            <text id="ref-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal">
-                <tspan x="${refCount > 9 ? 11 : 18}" y="28">${refCount}</tspan>
-            </text>    
-          </defs>
-          <g id="MOP-${id}" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="1a.-Ministry-dashboard-Copy-3-${id}" transform="translate(-472.000000, -289.000000)">
-                  <g id="Group-Copy-3-${id}" transform="translate(471.000000, 291.000000)">
-                      <circle id="Oval-3-${id}" stroke="#9B9B9B" fill="${colorsByType[oil.type]}" cx="24.5" cy="66.5" r="22.5"></circle>
-                      <circle id="Oval-3-Copy-2-${id}" stroke="#979797" fill="${colorsByType[gas.type]}" cx="116.5" cy="66.5" r="22.5"></circle>
-                      <circle id="Oval-3-Copy-${id}" stroke="#979797" fill="${colorsByType[ref.type]}" cx="70.5" cy="66.5" r="22.5"></circle>
-                      <g id="Icons/px-obj:plant-${id}" transform="translate(0.000000, 45.000000)">
-                          <g id="px-obj:plant-${id}">
-                              <rect id="Container-${id}" x="0" y="0" width="46" height="42"></rect>
-                              <mask id="mask-2-${id}" fill="white">
-                                  <use xlink:href="#path-1-${id}"></use>
-                              </mask>
-                              <use id="Mask-${id}" fill="white" fill-rule="nonzero" xlink:href="#oil-${id}"></use>
-                              <g id="/$white-Icon-Color-${id}" mask="url(#mask-2-${id})" fill="transparent">
-                                  <rect id="Rectangle-Copy-3-${id}" x="0" y="0" width="46" height="42"></rect>
-                              </g>
-                          </g>
-                      </g>
-                      <g id="Icons/px-obj:fleet-${id}" transform="translate(93.000000, 46.000000)">
-                          <g id="px-obj:fleet-${id}">
-                              <rect id="Container-${id}" x="0" y="0" width="46" height="42"></rect>
-                              <mask id="mask-4-${id}" fill="white">
-                                  <use xlink:href="#path-3-${id}"></use>
-                              </mask>
-                              <use id="Mask-${id}" fill="white" fill-rule="nonzero" xlink:href="#gas-${id}"></use>
-                              <g id="/$white-Icon-Color-${id}" mask="url(#mask-4-${id})" fill="transparent">
-                                  <rect id="Rectangle-Copy-3-${id}" x="0" y="0" width="46" height="42"></rect>
-                              </g>
-                          </g>
-                      </g>
-                      <g id="Icons/px-obj:line-${id}" transform="translate(47.000000, 46.000000)">
-                          <g id="px-obj:line-${id}">
-                              <rect id="Container-${id}" x="0" y="0" width="46" height="42"></rect>
-                              <mask id="mask-6-${id}" fill="white">
-                                  <use xlink:href="#path-5-${id}"></use>
-                              </mask>
-                              <use id="Mask-${id}" fill="white" fill-rule="nonzero" xlink:href="#ref-${id}"></use>
-                              <g id="/$white-Icon-Color-${id}" mask="url(#mask-6-${id})" fill="transparent">
-                                  <rect id="Rectangle-Copy-3-${id}" x="0" y="0" width="46" height="42"></rect>
-                              </g>
-                          </g>
-                      </g>
-                      <text id="Western-Desert-${id}" text-anchor="middle"
-                        font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="20" font-weight="normal" fill="#4A4A4A">
-                        <tspan x="70" y="110">${label}</tspan>
-                      </text>
-                      <text id="18-${id}" font-family="GEInspiraSans-Regular, GE Inspira Sans" font-size="36" font-weight="normal" fill="#59717F">
-                          <tspan x="${total > 9 ? 48.848 : 60.848}" y="37">${total}</tspan>
-                      </text>
-                      <path d="M113,44 C113,19.699471 93.5243866,0 69.5,0 C45.4756134,0 26,19.699471 26,44" id="Oval-2-${id}" stroke="#9B9B9B" stroke-width="3"></path>
-                  </g>
-              </g>
-            </g>
-        </svg>
-      `
     }
 
     _generateClusterIconSVG(colorsByType, chartSize, total, label, oil, gas, ref) {
@@ -531,4 +405,88 @@
   };
   /* Bind ClusterIcon klass */
   PxMap.ClusterIcon = ClusterIcon;
+
+  /**
+   *
+   * @class PxMap.CustomIcon
+   */
+  class CustomIcon {
+    constructor(settings={}) {
+      this.icon = this.createIcon(settings);
+      return this.icon;
+    }
+
+    createIcon(settings={}) {
+      let { type='info', icon='px-nav:favorite', icons = [], 
+        styleScope, stroke='currentColor', 
+        fill='none', strokeWidth='2px', color } = settings;
+      const className = this._generateCustomIconClasses(type, styleScope);
+
+      let customStyleBackground = '';
+      let customStyleBorder = '';
+      let id = new Date().getTime();
+      if (color) {
+        customStyleBackground = `background-color: ${color};`;
+        customStyleBorder = `border-color: ${color} transparent transparent;`;
+      }
+
+      let iconHtmls = icons.map((iconType, idx)=> {
+        if("midstream" === iconType) {
+          return `
+            
+          `;
+        } else if("downstream" === iconType) {
+          return `
+          
+          `;
+        } else {
+          return `
+          
+          `;
+        }
+      });
+
+
+      // Icon/Custom options
+      let html;
+      html  = `
+        <div class="map-icon-custom__wrapper">
+          <div class="map-icon-custom__custom--container flex flex--middle flex--center">
+            <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; 
+              width:100%; height:100%; stroke-width:${strokeWidth}">
+            </px-icon>
+          </div>
+          <div style="padding-top: 0.5rem; margin-left: -1rem;">${settings.featureProperties.title}</div>
+        </div>
+        `;
+
+      const iconSize = L.point(40,56);
+      const iconAnchor = L.point(19.6, 57);
+      const popupAnchor = L.point(1,-58);
+
+      // Define the `divIcon` options
+      const options = {
+        className,
+        html,
+        iconSize,
+        iconAnchor,
+        popupAnchor
+      };
+
+      return L.divIcon(options);
+    }
+
+    _generateCustomIconClasses(type, styleScope) {
+      const classes = ['map-icon', 'map-icon-custom', 'map-icon-custom--with-badge'];
+      if (type && type.length) {
+        classes.push(`map-icon-custom--${type}`);
+      }
+      if (styleScope) {
+        classes.push(styleScope);
+      }
+      return classes.join(' ');
+    }
+  };
+  /* Bind CustomIcon klass */
+  PxMap.CustomIcon = CustomIcon;
 })();
