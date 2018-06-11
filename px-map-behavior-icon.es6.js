@@ -417,9 +417,9 @@
     }
 
     createIcon(settings={}) {
-      let { type='info', icon='px-nav:favorite', icons = [], 
-        styleScope, stroke='currentColor', 
-        fill='none', strokeWidth='2px', color } = settings;
+      let { type='info', icon='upstream', icons = [], 
+        styleScope, stroke='transparent', 
+        fill='#2CAC48', strokeWidth='2px', color, featureProperties={} } = settings;
       const className = this._generateCustomIconClasses(type, styleScope);
 
       let customStyleBackground = '';
@@ -430,35 +430,73 @@
         customStyleBorder = `border-color: ${color} transparent transparent;`;
       }
 
-      let iconHtmls = icons.map((iconType, idx)=> {
-        if("midstream" === iconType) {
-          return `
-            
-          `;
-        } else if("downstream" === iconType) {
-          return `
-          
-          `;
-        } else {
-          return `
-          
-          `;
-        }
-      });
-
+      if(type == 'warning') {
+        fill = '#FEC600';
+      } else if(type == 'important') {
+        fill = '#F34336';
+      }
 
       // Icon/Custom options
-      let html;
-      html  = `
+      let html = `
         <div class="map-icon-custom__wrapper">
-          <div class="map-icon-custom__custom--container flex flex--middle flex--center">
-            <px-icon icon="${icon}" style="stroke:${stroke}; fill:${fill}; 
-              width:100%; height:100%; stroke-width:${strokeWidth}">
-            </px-icon>
+          <div class="map-icon-custom__custom--container">
+            <svg width="40" height="56" viewBox="0 0 40 60">
+              <g fill="none" fill-rule="evenodd">
+                <g transform="translate(6 7)" stroke-width="${strokeWidth}" stroke="${stroke}">
+                  <path fill="${fill}" fill-rule="nonzero" d="M16.4935067,0 C7.39893801,0 0,7.63584766 0,17.0215273 C0,28.6694492 14.7600728,45.7692793 15.388496,46.4915371 C15.9787601,47.1700078 17.0093208,47.1688145 17.5985175,46.4915371 C18.2269407,45.7692793 32.9870135,28.6694492 32.9870135,17.0215273 C32.9868356,7.63584766 25.5879865,0 16.4935067,0 Z"/>
+                  <ellipse cx="16.808" cy="17.253" fill="#FFF" rx="12.578" ry="12.98"/>
+                  [[iconWithoutText]]
+                </g>
+                [[iconWithText]]
+              </g>
+            </svg>
           </div>
-          <div style="padding-top: 0.5rem; margin-left: -1rem;">${settings.featureProperties.title}</div>
+          <div style="padding-top: 0.5rem; margin-left: -1rem;">${featureProperties.title}</div>
         </div>
         `;
+
+      let _getIconWithTextIfAny = (iconType, iconSvg) => {
+        let iconWithText = '', iconWithoutText = '';
+        if(featureProperties.kpi) {
+          iconSvg = iconSvg.replace(
+            '[[fillTransform]]', ' fill="#FFF" ');
+          iconWithText = `
+            <ellipse cx="9.5" cy="10" fill="${fill}" rx="9.5" ry="10"/>
+            ${iconSvg}
+            <text fill="${fill}" font-family="GEInspiraSans-Bold, GE Inspira Sans" font-size="10" font-weight="bold">
+              <tspan x="13.445" y="28">${featureProperties.kpi}</tspan>
+            </text>
+          `;
+        } else {
+          let transform = "translate(6 7)";
+          if("midstream" === iconType) {
+            transform = "translate(2 2)";
+          } else if("downstream" === iconType) {
+            transform = "translate(-2 -2)";
+          }
+          iconWithoutText = iconSvg.replace(
+            '[[fillTransform]]', 
+            ` fill="${fill}" transform="${transform}" `);
+        }
+        return html.replace('[[iconWithText]]', iconWithText)
+                .replace('[[iconWithoutText]]', iconWithoutText);
+      };
+
+      let iconHtmls = icons.map((iconType, idx)=> {
+        if("midstream" === iconType) {
+          return _getIconWithTextIfAny(iconType, 
+            '<path [[fillTransform]] d="M8.00113777,19.9944059 L18,20 L18,12 L12.4997562,14.9292839 L12.4997562,12 L7,14.9292839 L7.0016977,18.9938463 C7.00182172,19.5458248 7.44915975,19.9933127 8.00113821,19.9936215 Z M19,9 L19,20 L22,20 L22,9 C22,8.44771525 21.5522847,8 21,8 L20,8 C19.4477153,8 19,8.44771525 19,9 Z"/>'
+          );
+        } else if("downstream" === iconType) {
+          return _getIconWithTextIfAny(iconType, 
+            '<path [[fillTransform]] d="M22.5054048,20.2575318 C23.7949322,22.5491739 25.3213116,25.187227 24.1896855,27.8252801 C23.2422776,30.0103342 19.4263292,30.4899802 17.3209784,28.9711011 C16.8209576,28.6246901 16.4525212,28.1983381 16.2156692,27.6920451 C15.0577263,25.027345 16.5841056,22.4159389 17.873633,20.1242968 C19.1631604,17.8326547 20.1895189,14.0487805 20.1895189,14.0487805 L20.847441,16.2871286 C21.2685112,17.5395376 21.8474827,19.0850637 22.5054048,20.2575318 Z M16.3173772,13.7915481 C17.0990201,15.3069857 18.027221,17.070404 17.2944308,18.8338222 C16.732625,20.294153 14.4609755,20.6247939 13.1908058,19.6053177 C12.8976897,19.3848904 12.6534264,19.0818029 12.5312947,18.751162 C11.8473572,16.9877437 12.7755581,15.2243255 13.5327746,13.7088879 C14.3144174,12.1934503 14.9250759,9.65853659 14.9250759,9.65853659 L15.3158973,11.1464207 C15.5845871,11.9730231 15.9265558,13.0200526 16.3173772,13.7915481 Z M18.4704261,8.56921112 C18.969388,9.47134344 19.5996557,10.4765766 19.1794772,11.507585 C18.7855599,12.3581669 17.2624131,12.5385933 16.4220562,11.9457635 C16.211967,11.8168875 16.0544001,11.6622362 15.9756167,11.4560345 C15.5029159,10.4250262 16.1069224,9.39401782 16.6321455,8.51766071 C17.1311073,7.61552838 17.5512858,6.14634146 17.5512858,6.14634146 L17.8138973,7.02269857 C17.9714642,7.51242755 18.2078146,8.10525736 18.4704261,8.56921112 Z"/>'
+          );
+        } else {
+          return _getIconWithTextIfAny(iconType, 
+            '<path [[fillTransform]] d="M5.76131239,7.90149518 L9.00890768,6.52297276 C9.09754886,5.8079352 9.69490916,5.25503235 10.4186283,5.25503235 C10.7450213,5.25503235 11.0457134,5.36749036 11.2856308,5.55656114 L14.0591836,4.37925782 L14.6266469,5.71611764 L13.9712865,5.99430163 L13.9712865,13.2427458 L14.6818182,13.2427458 L14.6818182,13.9130435 L6.15543838,13.9130435 L6.15543838,13.2427458 L8.99756498,13.2427458 L9.44814332,7.91426201 L6.32877572,9.238355 L6.6564441,10.0102933 C6.76434153,10.2644837 6.64574764,10.5580139 6.39155724,10.6659113 L5.3499186,11.1080607 C5.0957282,11.2159581 4.80219803,11.0973642 4.69430061,10.8431739 L3.49153433,8.00963407 C3.38363691,7.75544367 3.5022308,7.4619135 3.75642119,7.35401608 L4.79805984,6.91186671 C5.05225023,6.80396929 5.34578041,6.92256317 5.45367783,7.17675357 L5.76131239,7.90149518 Z M11.8266904,6.90462866 C11.7808978,7.24921541 11.6168445,7.55538944 11.3776799,7.77905253 L11.8396916,13.2427458 L13.2607549,13.2427458 L13.2607549,6.29590442 L11.8266904,6.90462866 Z M10.4186283,7.43349967 C10.8110441,7.43349967 11.1291599,7.10838866 11.1291599,6.7073439 C11.1291599,6.30629914 10.8110441,5.98118813 10.4186283,5.98118813 C10.0262125,5.98118813 9.70809663,6.30629914 9.70809663,6.7073439 C9.70809663,7.10838866 10.0262125,7.43349967 10.4186283,7.43349967 Z"/>'
+          );
+        }
+      });
 
       const iconSize = L.point(40,56);
       const iconAnchor = L.point(19.6, 57);
@@ -467,7 +505,7 @@
       // Define the `divIcon` options
       const options = {
         className,
-        html,
+        html:iconHtmls.join(),
         iconSize,
         iconAnchor,
         popupAnchor
