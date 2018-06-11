@@ -166,6 +166,10 @@ $px-map-marker-locate-icon-accuracy-opacity:        var(--px-map-marker-locate-i
 }
 
 .map-icon-cluster__container {
+  transition: all .2s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
   width: 200%;
   // border-top-left-radius: 200%;
   // border-top-right-radius: 200%;
