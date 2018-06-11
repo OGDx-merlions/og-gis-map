@@ -146,6 +146,12 @@ $px-map-marker-locate-icon-accuracy-opacity:        var(--px-map-marker-locate-i
 // MAP ICON: SYMBOL
 @import "_map-icon-symbol.scss";
 
+.map-icon-custom__title {
+  margin-top: -0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
 // MAP ICON: CLUSTER
 .map-icon-cluster {
   @extend %map-icon !optional;

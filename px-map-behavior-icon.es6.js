@@ -451,7 +451,7 @@
               </g>
             </svg>
           </div>
-          <div style="padding-top: 0.5rem; margin-left: -1rem;">${featureProperties.title}</div>
+          <div class="map-icon-custom__title" style="color: ${fill}">${featureProperties.title || ''}</div>
         </div>
         `;
 
