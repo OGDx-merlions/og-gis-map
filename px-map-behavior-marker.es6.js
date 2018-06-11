@@ -128,7 +128,6 @@
         'mouseover' : mouseOverFn,
         'mouseout' : mouseOutFn
       }, this.marker);
-
       // Now call layer's add
       PxMapBehavior.LayerImpl.addInst.call(this, parent);
     },
