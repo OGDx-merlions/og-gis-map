@@ -420,7 +420,8 @@
         pathSize: pathSize,
         borderSize: borderSize,
         styleScope: this.isShadyScoped() ? this.getShadyScope() : undefined,
-        markers: markers
+        markers: markers,
+        clusterDetail: cluster.options.icon._group.options.data.cluster
       };
 
       return new PxMap.ClusterIcon(options);
