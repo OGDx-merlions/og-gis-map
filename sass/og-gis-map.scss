@@ -48,21 +48,46 @@ $inuit-enable-responsive-paddings : true;
 
 // Component
 
-.regions {
-  padding-top: 0.75rem;
-  position: absolute;
-  z-index: 800;
-  .region-sel-div {
-    left: 50%;
+
+$px-map-control-button-background-color--hover:     var(--px-map-control-button-background-color--hover, gray);
+$px-map-control-button-text-color--hover:           var(--px-map-control-button-text-color--hover, blue);
+
+.stream-toggles{
+  position: relative;
+  z-index: 1000;
+  pointer-events: all;
+  margin-top: 15%;
+  margin-left: -6.5%;
+  height: 10rem;
+  .toggler {
+    cursor: pointer;
+    &:hover {
+      circle {
+        fill: $px-map-control-button-background-color--hover;
+      }
+      path {
+        fill: $px-map-control-button-text-color--hover;
+      }
+    }
+  }
+  .pressed {
+    circle {
+      fill: $px-map-control-button-background-color--hover;
+    }
+    path {
+      fill: $px-map-control-button-text-color--hover;
+    }
   }
 }
 
-#map {
-  .leaflet-control-zoom-in, .leaflet-control-zoom-out {
-    border-radius: 0%;
-  }
+.filter {
+  position: relative;
+  z-index: 1000;
+  pointer-events: all;
+  margin-top: 0%;
+  width: 2rem;
+  height: 2rem;
 }
-
 
 // Trumps
 @import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";

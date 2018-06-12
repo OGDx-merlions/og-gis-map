@@ -136,7 +136,76 @@
        * - {Object} `properties.marker-popup`: [OPTIONAL] Settings to configure a marker icon
        *
        * @type {Object}
-       */markerGroups:{type:Array,value:function value(){return[]}},/**
+       */upstream:{type:Object,value:function value(){return{}}},/**
+       * An array of objects formatted as a GeoJSON FeatureCollection with one or many Features.
+       * Each feature should be a point that will be represented as a marker.
+       * See the `px-map-marker-group` API documentation page for an in-depth
+       * guide that explains how to configure your features.
+       *
+       * The root feature collection object must have the following keys/values:
+       *
+       * - {String} `type`: Must be 'FeatureCollection'
+       * - {Array}  `features`: An array of feature objects
+       *
+       * Each feature object in the collection must have the following key/values:
+       *
+       * - {String} `type`: Must be 'Feature'
+       * - {Number} `id`: A unique numeric ID. If the feature is changed, it should keep its ID. No other features in the collection should have the same ID.
+       * - {Object} `geometry`
+       * - {String} `geometry.type`: Must be 'Point'
+       * - {Array}  `geometry.coordinates`: a pair of coordinates in `[lng,lat]` order
+       * - {Object} `properties`
+       * - {Object} `properties.marker-icon`: Settings to configure a marker icon
+       * - {Object} `properties.marker-popup`: [OPTIONAL] Settings to configure a marker icon
+       *
+       * @type {Object}
+       */midstream:{type:Object,value:function value(){return{}}},/**
+       * An array of objects formatted as a GeoJSON FeatureCollection with one or many Features.
+       * Each feature should be a point that will be represented as a marker.
+       * See the `px-map-marker-group` API documentation page for an in-depth
+       * guide that explains how to configure your features.
+       *
+       * The root feature collection object must have the following keys/values:
+       *
+       * - {String} `type`: Must be 'FeatureCollection'
+       * - {Array}  `features`: An array of feature objects
+       *
+       * Each feature object in the collection must have the following key/values:
+       *
+       * - {String} `type`: Must be 'Feature'
+       * - {Number} `id`: A unique numeric ID. If the feature is changed, it should keep its ID. No other features in the collection should have the same ID.
+       * - {Object} `geometry`
+       * - {String} `geometry.type`: Must be 'Point'
+       * - {Array}  `geometry.coordinates`: a pair of coordinates in `[lng,lat]` order
+       * - {Object} `properties`
+       * - {Object} `properties.marker-icon`: Settings to configure a marker icon
+       * - {Object} `properties.marker-popup`: [OPTIONAL] Settings to configure a marker icon
+       *
+       * @type {Object}
+       */downstream:{type:Object,value:function value(){return{}}},/**
+       * An array of objects formatted as a GeoJSON FeatureCollection with one or many Features.
+       * Each feature should be a point that will be represented as a marker.
+       * See the `px-map-marker-group` API documentation page for an in-depth
+       * guide that explains how to configure your features.
+       *
+       * The root feature collection object must have the following keys/values:
+       *
+       * - {String} `type`: Must be 'FeatureCollection'
+       * - {Array}  `features`: An array of feature objects
+       *
+       * Each feature object in the collection must have the following key/values:
+       *
+       * - {String} `type`: Must be 'Feature'
+       * - {Number} `id`: A unique numeric ID. If the feature is changed, it should keep its ID. No other features in the collection should have the same ID.
+       * - {Object} `geometry`
+       * - {String} `geometry.type`: Must be 'Point'
+       * - {Array}  `geometry.coordinates`: a pair of coordinates in `[lng,lat]` order
+       * - {Object} `properties`
+       * - {Object} `properties.marker-icon`: Settings to configure a marker icon
+       * - {Object} `properties.marker-popup`: [OPTIONAL] Settings to configure a marker icon
+       *
+       * @type {Object}
+       */predictive:{type:Object,value:function value(){return{}}},/**
        * An object mapping categories of icons to their respective colors. Each
        * key should be a string representing the name of an `icon-type` to
        * a valid CSS color value (e.g. hex color, `rgb()` color). Set the
@@ -205,5 +274,6 @@
        * - {Object} `spiderLegPolylineOptions`: [default=undefined] Sets the style for the marker spiderfy legs, see [PolylineOptions](http://leafletjs.com/reference.html#polyline-options)
        *
        * @type {Object}
-       */clusterConfig:{type:Object,value:function value(){return{}}},hasRegions:{type:Boolean,computed:'_hasRegions(regions)',value:function value(){return[]}}},_hasRegions:function _hasRegions(regions){return regions&&regions.length},_focusRegion:function _focusRegion(evt){var eventDetail=evt.detail;if(eventDetail.selected){var item=this.regions[eventDetail.key];this.lat=item.lat;this.lng=item.lng;this.$.map.zoom=item.zoom||this.zoom}},_selectDefaultRegion:function _selectDefaultRegion(){var _this=this;this.regionsDropdownData=[];if(this.regions){this.regions.forEach(function(_region,idx){var obj=_region;obj.key=idx;obj.val=_region.label;if(_region.default){_this.lat=_region.lat;_this.lng=_region.lng;obj.selected=true}_this.regionsDropdownData.push(obj)})}}})})();
+       */clusterConfig:{type:Object,value:function value(){return{}}},hasRegions:{type:Boolean,computed:'_hasRegions(regions)',value:function value(){return[]}}},attached:function attached(){//Fixes unrendered regions
+window.setTimeout(function(){var zoomIn=document.querySelector('#map a.leaflet-control-zoom-in');var zoomOut=document.querySelector('#map a.leaflet-control-zoom-out');zoomIn&&zoomIn.click();zoomOut&&zoomOut.click()},1000)},_isValidMarkerGroup:function _isValidMarkerGroup(obj){return obj&&obj.type},_hasRegions:function _hasRegions(regions){return regions&&regions.length},_focusRegion:function _focusRegion(evt){var eventDetail=evt.detail;if(eventDetail.selected){var item=this.regions[eventDetail.key];this.lat=item.lat;this.lng=item.lng;this.$.map.zoom=item.zoom||this.zoom}},_selectDefaultRegion:function _selectDefaultRegion(){var _this=this;this.regionsDropdownData=[];if(this.regions){this.regions.forEach(function(_region,idx){var obj=_region;obj.key=idx;obj.val=_region.label;if(_region.default){_this.lat=_region.lat;_this.lng=_region.lng;obj.selected=true}_this.regionsDropdownData.push(obj)})}},_removePressed:function _removePressed(){this.upstreamPressedCls=undefined;this.midstreamPressedCls=undefined;this.downstreamPressedCls=undefined;this.predictivePressedCls=undefined},_backup:function _backup(key){if(this[key]&&this[key].type){this['_'+key]=this[key];this[key]=undefined;document.querySelector('#'+key).redraw()}},_restore:function _restore(key){var _key='_'+key;if(this[_key]&&this[_key].type){this[key]=this[_key];this[_key]=undefined;document.querySelector('#'+key).redraw()}},_hideAll:function _hideAll(){this._removePressed();this._backup('upstream');this._backup('midstream');this._backup('downstream');this._backup('predictive')},_showAll:function _showAll(){this._removePressed();this._restore('upstream');this._restore('midstream');this._restore('downstream');this._restore('predictive')},_toggleUpstreamOnly:function _toggleUpstreamOnly(){if(!this.upstreamPressedCls){this._hideAll();this.upstreamPressedCls='pressed';this._restore('upstream')}else{this._showAll()}},_toggleMidstreamOnly:function _toggleMidstreamOnly(){if(!this.midstreamPressedCls){this._hideAll();this.midstreamPressedCls='pressed';this._restore('midstream')}else{this._showAll()}},_toggleDownstreamOnly:function _toggleDownstreamOnly(){if(!this.downstreamPressedCls){this._hideAll();this.downstreamPressedCls='pressed';this._restore('downstream')}else{this._showAll()}},_togglePredictiveOnly:function _togglePredictiveOnly(){if(!this.predictivePressedCls){this._hideAll();this.predictivePressedCls='pressed';this._restore('predictive')}else{this._showAll()}},_shouldHide:function _shouldHide(bool){return bool}})})();
 //# sourceMappingURL=og-gis-map.js.map

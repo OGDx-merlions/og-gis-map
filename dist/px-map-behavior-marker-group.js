@@ -133,7 +133,7 @@
      * in the data from the last draw, and make any necessary updates. Call this
      * method if you are passing an object by reference to `data` and making
      * deep updates that don't trigger changes.
-     */update:function update(){if(!this.elementInst)return;var _getInstOptions=this.getInstOptions(),data=_getInstOptions.data;var features=this._syncDataWithMarkers(data.features,this.elementInst,data.cluster);this._notifyNewFeatures(features)},/**
+     */update:function update(){if(!this.elementInst)return;var _getInstOptions=this.getInstOptions(),data=_getInstOptions.data;if(!data)return;var features=this._syncDataWithMarkers(data.features,this.elementInst,data.cluster);this._notifyNewFeatures(features)},/**
      * Skips the smart diffing system that only updates markers when their
      * feature properties have changed. Forces a redraw of all markers
      */redraw:function redraw(){if(!this.elementInst)return;this._clearAllMarkersAndData(this.elementInst);this.update()},// INSTANCE METHODS

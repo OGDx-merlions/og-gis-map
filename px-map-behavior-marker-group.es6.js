@@ -198,6 +198,7 @@
       if (!this.elementInst) return;
 
       const {data} = this.getInstOptions();
+      if(!data) return;
       const features = this._syncDataWithMarkers(data.features, this.elementInst, data.cluster);
       this._notifyNewFeatures(features);
     },

@@ -44,7 +44,11 @@
           zoom="{{props.zoom.value}}" lat="{{props.lat.value}}"
           lng="{{props.lng.value}}" tile-url="{{props.tileUrl.value}}"
           features="{{props.features.value}}" feature-styles="{{props.featureStyles.value}}"
-          marker-groups="{{props.markerGroups.value}}" colors-by-type="{{props.colorsByType.value}}"
+          upstream="{{props.upstream.value}}"
+          midstream="{{props.midstream.value}}"
+          downstream="{{props.downstream.value}}"
+          predictive="{{props.predictive.value}}"
+          colors-by-type="{{props.colorsByType.value}}"
           regions="{{props.regions.value}}" on-px-map-marker-group-marker-tapped="_test"
           on-px-map-marker-group-cluster-tapped="_test"
           cluster-config="{{props.clusterConfig.value}}">
@@ -235,7 +239,7 @@
       },
       zoom: {
         type: Number,
-        defaultValue: '8',
+        defaultValue: '7.5',
         inputType: 'text'
       },
       tileUrl: {
@@ -1538,96 +1542,148 @@
         defaultValue: {"color":"#3E87E8", "fillColor": "#3E87E8"},
         inputType: 'code:JSON'
       },
-      markerGroups: {
-        type: Array,
-        defaultValue: [
-          {
-            "type": "FeatureCollection",
-            "cluster": {
-              "label": "Western Desert",
-              "kpi": "1%",
-              "icon": "upstream"
-            },
-            "features": [
-              {
-                "type": "Feature",
-                "geometry": {
-                  "type": "Point",
-                  "coordinates": [
-                    32.451934,
-                    30.679871
-                  ]
-                },
-                "properties": {
-                  "marker-icon": {
-                    "icon-base": "custom-icon",
-                    "icon-type": "info",
-                    "icon-icons": ["ship"]
-                  },
-                  "marker-popup": {
-                    "popup-base": "info-popup"
-                  },
-                  "kpi": "2%"
-                },
-                "id": 1
-              }
-            ]
-          }, 
-          {
-            "type": "FeatureCollection",
-            "cluster": {
-              "label": "Upper Egypt",
-              "kpi": "5%",
-              "icon": "ship"
-            },
-            "features": [
-              {
-                "type": "Feature",
-                "geometry": {
-                  "type": "Point",
-                  "coordinates": [
-                    26.291531856375627,
-                    32.02606446047858
-                  ]
-                },
-                "properties": {
-                  "marker-icon": {
-                    "icon-base": "custom-icon",
-                    "icon-type": "warning",
-                    "icon-icons": ["midstream"]
-                  },
-                  "marker-popup": {
-                    "popup-base": "info-popup"
-                  },
-                  "kpi": "2%"
-                },
-                "id": 2
+      upstream: {
+        type: Object,
+        defaultValue: {
+          "type": "FeatureCollection",
+          "cluster": {
+            "label": "Western Desert",
+            "kpi": "1%",
+            "icon": "upstream"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  27.451934,
+                  28.679871
+                ]
               },
-              // {
-              //   "type": "Feature",
-              //   "geometry": {
-              //     "type": "Point",
-              //     "coordinates": [
-              //       25.791531856375627,
-              //       32.02606446047858
-              //     ]
-              //   },
-              //   "properties": {
-              //     "marker-icon": {
-              //       "icon-base": "custom-icon",
-              //       "icon-type": "important",
-              //       "icon-icons": ["storage"]
-              //     },
-              //     "marker-popup": {
-              //       "popup-base": "info-popup"
-              //     },
-              //     "kpi": "2%"
-              //   },
-              //   "id": 3
-              // }
-            ]
-          }
-        ],
+              "properties": {
+                "marker-icon": {
+                  "icon-base": "custom-icon",
+                  "icon-type": "info",
+                  "icon-icons": ["ship"]
+                },
+                "marker-popup": {
+                  "popup-base": "info-popup"
+                },
+                "kpi": "2%"
+              },
+              "id": 1
+            }
+          ]
+        },
+        inputType: 'code:JSON'
+      },
+      midstream: {
+        type: Object,
+        defaultValue: {
+          "type": "FeatureCollection",
+          "cluster": {
+            "label": "Upper Egypt",
+            "kpi": "5%",
+            "icon": "ship"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  26.291531856375627,
+                  32.02606446047858
+                ]
+              },
+              "properties": {
+                "marker-icon": {
+                  "icon-base": "custom-icon",
+                  "icon-type": "warning",
+                  "icon-icons": ["midstream"]
+                },
+                "marker-popup": {
+                  "popup-base": "info-popup"
+                },
+                "kpi": "2%"
+              },
+              "id": 2
+            }
+          ]
+        },
+        inputType: 'code:JSON'
+      },
+      downstream: {
+        type: Object,
+        defaultValue: {
+          "type": "FeatureCollection",
+          "cluster": {
+            "label": "Suez",
+            "kpi": "50%",
+            "icon": "downstream"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  25.791531856375627,
+                  32.02606446047858
+                ]
+              },
+              "properties": {
+                "marker-icon": {
+                  "icon-base": "custom-icon",
+                  "icon-type": "important",
+                  "icon-icons": ["downstream"]
+                },
+                "marker-popup": {
+                  "popup-base": "info-popup"
+                },
+                "kpi": "2%"
+              },
+              "id": 3
+            }
+          ]
+        },
+        inputType: 'code:JSON'
+      },
+      predictive: {
+        type: Object,
+        defaultValue: {
+          "type": "FeatureCollection",
+          "cluster": {
+            "label": "Western Desert",
+            "kpi": "1%",
+            "icon": "upstream"
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  32.451934,
+                  30.679871
+                ]
+              },
+              "properties": {
+                "marker-icon": {
+                  "icon-base": "custom-icon",
+                  "icon-type": "important",
+                  "icon-icons": ["upstream"]
+                },
+                "marker-popup": {
+                  "popup-base": "info-popup"
+                },
+                "kpi": "2%"
+              },
+              "id": 4
+            }
+          ]
+        },
         inputType: 'code:JSON'
       },
       colorsByType: {
