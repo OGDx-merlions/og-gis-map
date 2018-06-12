@@ -313,14 +313,6 @@
       }
     },
 
-    _adjustZoomStyle(e) {
-      console.log(e);
-    },
-
-    ready() {
-      console.log(document.querySelectorAll('#map a.leaflet-control-zoom-in'));
-    },
-
     _hasRegions(regions){
       return regions && regions.length;
     },
