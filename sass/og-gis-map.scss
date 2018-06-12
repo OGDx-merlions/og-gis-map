@@ -57,6 +57,12 @@ $inuit-enable-responsive-paddings : true;
   }
 }
 
+#map {
+  .leaflet-control-zoom-in, .leaflet-control-zoom-out {
+    border-radius: 0%;
+  }
+}
+
 
 // Trumps
 @import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";

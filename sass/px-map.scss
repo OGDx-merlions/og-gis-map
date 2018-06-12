@@ -332,8 +332,16 @@ $px-map-marker-locate-icon-accuracy-opacity:        var(--px-map-marker-locate-i
     @extend %map-control-button;
     @extend %map-control-button--round;
     position: relative;
-    border-radius: 100%;
+    border-radius: 0%;
+    border-width: 1px;
   }
+  a.leaflet-control-zoom-in {
+    border-right-width: 0.5px;
+  }
+  a.leaflet-control-zoom-out {
+    border-left-width: 0.25px;
+  }
+  display: flex;
 }
 
 // MAP CONTROL: SCALE
