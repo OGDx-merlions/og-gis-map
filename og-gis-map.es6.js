@@ -9,14 +9,16 @@
        */
       width: {
         type: String,
-        value: '75vw'
+        value: '75vw',
+        observer: '_adjustFilterHorizontalMargin'
       },
       /**
       * Component Height
       */
       height: {
         type: String,
-        value: '500px'
+        value: '500px',
+        observer: '_adjustFilterVerticalMargin'
       },
       /**
        * The coordinate reference system to use when projecting geographic points
@@ -394,22 +396,35 @@
           return {}
         }
       },
+      contextPaneProportion: {
+        type: Number,
+        value: 0.3
+      },
       hasRegions: {
         type: Boolean,
         computed: '_hasRegions(regions)',
         value() {
           return []
         }
+      },
+      toggleMarginTop: {
+        type: String
+      },
+      toggleMarginLeft: {
+        type: String
       }
     },
 
     attached() {
       //Fixes unrendered regions
+      let me = this;
       window.setTimeout(() => {
         const zoomIn = document.querySelector("#map a.leaflet-control-zoom-in");
         const zoomOut = document.querySelector("#map a.leaflet-control-zoom-out");
         zoomIn && zoomIn.click();
         zoomOut && zoomOut.click();
+        me.toggleMarginLeft = 
+        document.querySelector("#map div.leaflet-control-zoom").getBoundingClientRect().left;
       }, 1000);
     },
 
@@ -518,6 +533,42 @@
     },
     _shouldHide(bool) {
       return bool;
+    },
+    _toggleContextPane() {
+      const currHeightNum = this.height.replace(/\D/g, '');
+      const cpMinHeightPercentage = this.contextPaneProportion;
+      const mapHeightPercentage = (1 - cpMinHeightPercentage);
+      const mapOrigHeightPercentage = 1 + (2*cpMinHeightPercentage);
+      if(!this.contextPaneOpen) {
+        const newMapHeight = Math.ceil(currHeightNum * mapHeightPercentage);
+        this.height = this.height.replace(currHeightNum, newMapHeight);
+        this.contextPaneMinHeight = Math.ceil(currHeightNum * cpMinHeightPercentage);
+        this.contextPaneOpen = true;
+        this._adjustMapHeight(
+          document.querySelector('#map').offsetHeight * mapHeightPercentage); 
+      } else {
+        this.height = this.defaultHeight;
+        this.contextPaneMinHeight = 0;
+        this.contextPaneOpen = false;
+        this._adjustMapHeight(document.querySelector('#map').offsetHeight);
+      }
+    },
+    _adjustFilterHorizontalMargin(newWidth, oldWidth) {
+      const widthNum = document.querySelector('#map').offsetWidth;
+      const toggleMarginLeft = -(widthNum * 0.065);
+      const filterMarginLeft = -(widthNum * 0.015);
+      this.$.toggles.style.marginLeft = `${toggleMarginLeft}px`;
+      this.$.filter.style.marginLeft = `${filterMarginLeft}px`; 
+    },
+    _adjustFilterVerticalMargin(newHeight, oldHeight) {
+      if(!oldHeight) {
+        this.defaultHeight = newHeight;
+      }
+      this._adjustMapHeight(document.querySelector('#map').offsetHeight);
+    },
+    _adjustMapHeight(heightNum) {
+      const toggleMarginTop = (heightNum * 0.25);
+      this.$.toggles.style.marginTop = `${toggleMarginTop}px`;
     }
   });
 })();
