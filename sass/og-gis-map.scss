@@ -56,8 +56,6 @@ $px-map-control-button-text-color--hover:           var(--px-map-control-button-
   position: relative;
   z-index: 1000;
   pointer-events: all;
-  margin-top: 15%;
-  margin-left: -6.5%;
   height: 10rem;
   .toggler {
     cursor: pointer;
@@ -87,6 +85,22 @@ $px-map-control-button-text-color--hover:           var(--px-map-control-button-
   margin-top: 0%;
   width: 2rem;
   height: 2rem;
+}
+
+.context-pane {
+  box-shadow: 
+        inset 0px 11px 8px -10px rgb(116, 114, 114);
+  cursor: pointer;
+  .handle .drag {
+    height: 2rem;
+    border-radius: 3px;
+    text-align: center;
+    background: white;
+    margin-top: -1.5rem;
+    z-index: 1000;
+    box-shadow: 
+        inset 0px 11px 8px -10px rgb(116, 114, 114);
+  }
 }
 
 // Trumps
