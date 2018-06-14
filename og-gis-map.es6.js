@@ -428,7 +428,7 @@
         document.querySelector("#map div.leaflet-control-zoom").getBoundingClientRect().left;
       }, 1000);
     },
-    
+
     toggleContextPane() {
       const currHeightNum = this.height.replace(/\D/g, '');
       const cpMinHeightPercentage = this.contextPaneProportion;
@@ -574,7 +574,6 @@
       this.$.toggles.style.marginTop = `${toggleMarginTop}px`;
     },
     _compute(contextPaneOpen) {
-      console.log(contextPaneOpen);
       return !contextPaneOpen;
     }
   });
