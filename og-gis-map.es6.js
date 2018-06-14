@@ -425,7 +425,10 @@
         zoomIn && zoomIn.click();
         zoomOut && zoomOut.click();
         me.toggleMarginLeft = 
-        document.querySelector("#map div.leaflet-control-zoom").getBoundingClientRect().left;
+          document.querySelector("#map div.leaflet-control-zoom").getBoundingClientRect().left;
+        me._adjustFilterHorizontalMargin();
+        me._adjustMapHeight(
+          document.querySelector("#map").getBoundingClientRect().height);
       }, 1000);
     },
 
@@ -557,21 +560,29 @@
       return bool;
     },
     _adjustFilterHorizontalMargin(newWidth, oldWidth) {
-      const widthNum = document.querySelector('#map').offsetWidth;
-      const toggleMarginLeft = -(widthNum * 0.065);
-      const filterMarginLeft = -(widthNum * 0.015);
-      this.$.toggles.style.marginLeft = `${toggleMarginLeft}px`;
-      this.$.filter.style.marginLeft = `${filterMarginLeft}px`; 
+      const comp = document.querySelector("#map");
+      if(comp) {
+        const widthNum = comp.getBoundingClientRect().width;
+        const toggleMarginLeft = -(widthNum * 0.065);
+        const filterMarginLeft = -(widthNum * 0.049);
+        this.$.toggles.style.marginLeft = `${toggleMarginLeft}px`;
+        this.$.filter.style.marginLeft = `${filterMarginLeft}px`; 
+      }
     },
     _adjustFilterVerticalMargin(newHeight, oldHeight) {
       if(!oldHeight) {
         this.defaultHeight = newHeight;
       }
-      this._adjustMapHeight(document.querySelector('#map').offsetHeight);
+      const comp = document.querySelector("#map");
+      if(comp) {
+        this._adjustMapHeight(comp.getBoundingClientRect().height);
+      }
     },
     _adjustMapHeight(heightNum) {
-      const toggleMarginTop = (heightNum * 0.25);
-      this.$.toggles.style.marginTop = `${toggleMarginTop}px`;
+      if(heightNum) {
+        const toggleMarginTop = (heightNum * 0.25);
+        this.$.toggles.style.marginTop = `${toggleMarginTop}px`;
+      }
     },
     _compute(contextPaneOpen) {
       return !contextPaneOpen;
