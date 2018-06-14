@@ -535,7 +535,7 @@
     _shouldHide(bool) {
       return bool;
     },
-    _toggleContextPane() {
+    toggleContextPane() {
       const currHeightNum = this.height.replace(/\D/g, '');
       const cpMinHeightPercentage = this.contextPaneProportion;
       const mapHeightPercentage = (1 - cpMinHeightPercentage);
