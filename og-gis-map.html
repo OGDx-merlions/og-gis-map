@@ -193,7 +193,9 @@ REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
         </div>
         <div class="u-1/3"></div>
       </div>
-      <slot name="context-pane"></slot>
+      <div id="context" hidden$="[[_compute(contextPaneOpen)]]">
+        <slot name="context-pane"></slot>
+      </div>
     </div>
   </template>
 </dom-module>
