@@ -416,6 +416,7 @@
     },
 
     attached() {
+      this.contextPaneOpen = false;
       //Fixes unrendered regions
       let me = this;
       window.setTimeout(() => {
@@ -549,6 +550,7 @@
       } else {
         this.height = this.defaultHeight;
         this.contextPaneMinHeight = 0;
+        this.contextPaneMaxHeight = 0;
         this.contextPaneOpen = false;
         this._adjustMapHeight(document.querySelector('#map').offsetHeight);
       }
@@ -569,6 +571,10 @@
     _adjustMapHeight(heightNum) {
       const toggleMarginTop = (heightNum * 0.25);
       this.$.toggles.style.marginTop = `${toggleMarginTop}px`;
+    },
+    _compute(contextPaneOpen) {
+      console.log(contextPaneOpen);
+      return !contextPaneOpen;
     }
   });
 })();
