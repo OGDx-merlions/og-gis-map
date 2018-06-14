@@ -428,6 +428,27 @@
         document.querySelector("#map div.leaflet-control-zoom").getBoundingClientRect().left;
       }, 1000);
     },
+    
+    toggleContextPane() {
+      const currHeightNum = this.height.replace(/\D/g, '');
+      const cpMinHeightPercentage = this.contextPaneProportion;
+      const mapHeightPercentage = (1 - cpMinHeightPercentage);
+      const mapOrigHeightPercentage = 1 + (2*cpMinHeightPercentage);
+      if(!this.contextPaneOpen) {
+        const newMapHeight = Math.ceil(currHeightNum * mapHeightPercentage);
+        this.height = this.height.replace(currHeightNum, newMapHeight);
+        this.contextPaneMinHeight = Math.ceil(currHeightNum * cpMinHeightPercentage);
+        this.contextPaneOpen = true;
+        this._adjustMapHeight(
+          document.querySelector('#map').offsetHeight * mapHeightPercentage); 
+      } else {
+        this.height = this.defaultHeight;
+        this.contextPaneMinHeight = 0;
+        this.contextPaneMaxHeight = 0;
+        this.contextPaneOpen = false;
+        this._adjustMapHeight(document.querySelector('#map').offsetHeight);
+      }
+    },
 
     _isValidMarkerGroup(obj) {
       return obj && obj.type;
@@ -534,26 +555,6 @@
     },
     _shouldHide(bool) {
       return bool;
-    },
-    toggleContextPane() {
-      const currHeightNum = this.height.replace(/\D/g, '');
-      const cpMinHeightPercentage = this.contextPaneProportion;
-      const mapHeightPercentage = (1 - cpMinHeightPercentage);
-      const mapOrigHeightPercentage = 1 + (2*cpMinHeightPercentage);
-      if(!this.contextPaneOpen) {
-        const newMapHeight = Math.ceil(currHeightNum * mapHeightPercentage);
-        this.height = this.height.replace(currHeightNum, newMapHeight);
-        this.contextPaneMinHeight = Math.ceil(currHeightNum * cpMinHeightPercentage);
-        this.contextPaneOpen = true;
-        this._adjustMapHeight(
-          document.querySelector('#map').offsetHeight * mapHeightPercentage); 
-      } else {
-        this.height = this.defaultHeight;
-        this.contextPaneMinHeight = 0;
-        this.contextPaneMaxHeight = 0;
-        this.contextPaneOpen = false;
-        this._adjustMapHeight(document.querySelector('#map').offsetHeight);
-      }
     },
     _adjustFilterHorizontalMargin(newWidth, oldWidth) {
       const widthNum = document.querySelector('#map').offsetWidth;
