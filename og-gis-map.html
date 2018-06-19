@@ -44,9 +44,9 @@ REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
 <dom-module id="og-gis-map">
   <template>
     <style include="og-gis-map-styles"></style>
-    <div class="flex flex--row">
-      <div class="u-1/1" style="width: 100% !important; display: flex;">
-        <px-map id="map" flex-to-size lat='[[lat]]' lng='[[lng]]' crs='[[crs]]'
+    <div class="flex flex--row" style="position: relative;">
+      <div class="u-1/1" style="width: 100% !important;">
+        <px-map id="map" flex-to-sizes lat='[[lat]]' lng='[[lng]]' crs='[[crs]]'
           zoom='[[zoom]]' style$="width: [[width]]; height: [[height]];">
           <px-map-tile-layer url='[[tileUrl]]'></px-map-tile-layer>
           <template is="dom-if" if="[[_isValidMarkerGroup(upstream)]]">

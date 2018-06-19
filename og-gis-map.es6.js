@@ -459,6 +459,7 @@
 
     invalidateSize() {
       this.$.map.invalidateSize();
+      this._adjustFilterHorizontalMargin();
     },
 
     _isValidMarkerGroup(obj) {
@@ -568,36 +569,17 @@
       return bool;
     },
     _adjustFilterHorizontalMargin(newWidth, oldWidth) {
-      const comp = document.querySelector("#map");
-      if(comp) {
-        const widthNum = comp.getBoundingClientRect().width;
-        const toggleMarginLeft = -(widthNum * 0.043);
-        const filterMarginLeft = -(widthNum * 0.0135);
-        this.$.toggles.style.marginLeft = `${toggleMarginLeft}px`;
-        this.$.filter.style.marginLeft = `${filterMarginLeft}px`;
-      }
       this.$.map.invalidateSize();
     },
     _adjustFilterVerticalMargin(newHeight, oldHeight) {
       if(!oldHeight) {
         this.defaultHeight = newHeight;
       }
-      const comp = document.querySelector("#map");
-      if(comp) {
-        this._adjustMapHeight(comp.getBoundingClientRect().height);
-      }
-    },
-    _adjustMapHeight(heightNum) {
-      if(heightNum) {
-        const toggleMarginTop = (heightNum * 0.25);
-        this.$.toggles.style.marginTop = `${toggleMarginTop}px`;
-      }
     },
     _compute(contextPaneOpen) {
       return !contextPaneOpen;
     },
     _onIronResize() {
-      console.log(arguments, this.$.map);
       this.$.map.invalidateSize();
     }
   });
