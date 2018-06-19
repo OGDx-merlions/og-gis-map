@@ -88,18 +88,17 @@ $px-map-control-button-text-color--hover:           var(--px-map-control-button-
 }
 
 .context-pane {
-  box-shadow: 
-        inset 0px 11px 8px -10px rgb(116, 114, 114);
+  box-shadow: inset 0px -2px 4px 0px rgb(156, 154, 154);
   cursor: pointer;
   .handle .drag {
     height: 2rem;
-    border-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     text-align: center;
     background: white;
     margin-top: -1.5rem;
     z-index: 1000;
-    box-shadow: 
-        inset 0px 11px 8px -10px rgb(116, 114, 114);
+    box-shadow: 0px -2px 1.5px 0px rgb(156, 154, 154);
   }
 }
 
