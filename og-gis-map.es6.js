@@ -575,6 +575,16 @@
       if(!oldHeight) {
         this.defaultHeight = newHeight;
       }
+      const comp = document.querySelector("#map");
+      if(comp) {
+        this._adjustMapHeight(comp.getBoundingClientRect().height);
+      }
+    },
+    _adjustMapHeight(heightNum) {
+      if(heightNum) {
+        const toggleMarginTop = (heightNum * 0.25);
+        // this.$.toggles.style.marginTop = `${toggleMarginTop}px`;
+      }
     },
     _compute(contextPaneOpen) {
       return !contextPaneOpen;
