@@ -4,6 +4,7 @@
     'gulp serve' (or similar server setup) to enable correct finding of bower dependencies for local runs.
 -->
 <link rel="import" href="../polymer/polymer.html"/>
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 
 <link rel="import" href="px-map.html"/>
 <link rel="import" href="px-map-tile-layer.html"/>
@@ -44,7 +45,7 @@ REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
   <template>
     <style include="og-gis-map-styles"></style>
     <div class="flex flex--row">
-      <div class="u-1/1" style$="width: 100% !important;">
+      <div class="u-1/1" style="width: 100% !important; display: flex;">
         <px-map id="map" flex-to-size lat='[[lat]]' lng='[[lng]]' crs='[[crs]]'
           zoom='[[zoom]]' style$="width: [[width]]; height: [[height]];">
           <px-map-tile-layer url='[[tileUrl]]'></px-map-tile-layer>
