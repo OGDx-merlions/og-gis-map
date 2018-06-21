@@ -60,15 +60,12 @@ $px-map-control-button-text-color--hover:           var(--px-map-control-button-
   z-index: 1000;
   pointer-events: all;
   height: 10rem;
+  fill: none;
   .toggler {
     cursor: pointer;
+    transition: all .2s ease-in-out;
     &:hover {
-      circle {
-        fill: $px-map-control-button-background-color--hover;
-      }
-      path {
-        fill: $px-map-control-button-text-color--hover;
-      }
+      transform: scale(1.1);
     }
   }
   .pressed {
