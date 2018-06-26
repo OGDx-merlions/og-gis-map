@@ -91,8 +91,8 @@ $px-map-control-button-text-color--hover:           var(--px-map-control-button-
 
 .context-pane {
   box-shadow: inset 0px -2px 4px 0px rgb(156, 154, 154);
-  cursor: pointer;
   .handle .drag {
+    cursor: pointer;
     height: 2rem;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
