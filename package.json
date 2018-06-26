@@ -2,7 +2,7 @@
     "name": "og-gis-map",
     "author": "General Electric",
     "description": "A Px component",
-    "version": "3.0.7",
+    "version": "3.0.8",
     "private": true,
     "extName": null,
     "repository": {
